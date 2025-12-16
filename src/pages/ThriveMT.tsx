@@ -2,6 +2,7 @@ import { ExternalLink, Heart, Brain, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import thriveLogo from "@/assets/thrive-logo.jpeg";
+import thriveMTQR from "@/assets/thrive-mt-qr.jpeg";
 
 const ThriveMT = () => {
   return (
@@ -36,7 +37,7 @@ const ThriveMT = () => {
                     asChild
                   >
                     <a 
-                      href="https://Thrlve-Mental.com" 
+                      href="https://Thrive-Mental.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2"
@@ -47,14 +48,20 @@ const ThriveMT = () => {
                 </div>
               </div>
               
-              {/* Visual */}
+              {/* QR Code */}
               <div className="relative animate-fade-in" style={{ animationDelay: "0.4s" }}>
-                <div className="relative z-10">
+                <div className="relative z-10 bg-card p-8 rounded-2xl shadow-elevated">
+                  <p className="font-sans text-sm text-muted-foreground text-center mb-4 uppercase tracking-widest">
+                    Scan to Visit
+                  </p>
                   <img
-                    src={thriveLogo}
-                    alt="Thrive Mental"
-                    className="w-full max-w-md mx-auto rounded-2xl shadow-elevated"
+                    src={thriveMTQR}
+                    alt="Scan to visit Thrive Mental"
+                    className="w-full max-w-sm mx-auto rounded-xl"
                   />
+                  <p className="font-serif text-lg text-foreground text-center mt-4">
+                    Thrive-Mental.com
+                  </p>
                 </div>
                 {/* Decorative circles */}
                 <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-rose rounded-full opacity-20 blur-xl" />
@@ -145,7 +152,7 @@ const ThriveMT = () => {
               asChild
             >
               <a 
-                href="https://Thrlve-Mental.com" 
+                href="https://Thrive-Mental.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3"
@@ -180,8 +187,8 @@ const ThriveMT = () => {
                 className="font-sans border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                 asChild
               >
-                <a 
-                  href="https://Thrlve-Mental.com" 
+              <a 
+                  href="https://Thrive-Mental.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
