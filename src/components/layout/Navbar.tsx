@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import thriveLogo from "@/assets/thrive-logo.jpeg";
+import { useWishlist } from "@/contexts/WishlistContext";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -16,6 +17,7 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { wishlistCount } = useWishlist();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
@@ -50,8 +52,19 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* Wishlist & CTA */}
+          <div className="hidden lg:flex items-center gap-4">
+            <Link
+              to="/wishlist"
+              className="relative p-2 text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Heart size={22} />
+              {wishlistCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-rose text-primary-foreground text-xs font-medium rounded-full flex items-center justify-center">
+                  {wishlistCount}
+                </span>
+              )}
+            </Link>
             <Button className="bg-gradient-rose text-primary-foreground hover:opacity-90 transition-opacity font-sans text-sm tracking-wide">
               Join the Movement
             </Button>

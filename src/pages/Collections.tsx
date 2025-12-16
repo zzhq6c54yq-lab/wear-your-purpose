@@ -1,15 +1,26 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Heart, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import { products, categories } from "@/data/products";
+import { useWishlist } from "@/contexts/WishlistContext";
 
 const Collections = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
   const filteredProducts = activeCategory === "All" 
     ? products 
     : products.filter(p => p.category === activeCategory);
+
+  const handleWishlistToggle = (productId: number) => {
+    if (isInWishlist(productId)) {
+      removeFromWishlist(productId);
+    } else {
+      addToWishlist(productId);
+    }
+  };
 
   return (
     <Layout>
@@ -73,25 +84,37 @@ const Collections = () => {
                 className="group bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-500 hover:-translate-y-2"
                 style={{ animationDelay: `${i * 0.05}s` }}
               >
-                <div className="relative aspect-square overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <button 
-                    className="absolute top-4 right-4 w-10 h-10 bg-background/90 backdrop-blur-sm rounded-full flex items-center justify-center text-muted-foreground hover:text-rose hover:bg-background transition-all shadow-soft"
-                    aria-label="Add to wishlist"
-                  >
-                    <Heart size={18} />
-                  </button>
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-charcoal/90 via-charcoal/50 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                    <p className="font-sans text-cream text-sm italic">"{product.affirmation}"</p>
+                <Link to={`/product/${product.id}`} className="block">
+                  <div className="relative aspect-square overflow-hidden">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <button 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleWishlistToggle(product.id);
+                      }}
+                      className={`absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-soft ${
+                        isInWishlist(product.id)
+                          ? "bg-rose text-primary-foreground"
+                          : "bg-background/90 backdrop-blur-sm text-muted-foreground hover:text-rose hover:bg-background"
+                      }`}
+                      aria-label={isInWishlist(product.id) ? "Remove from wishlist" : "Add to wishlist"}
+                    >
+                      <Heart size={18} fill={isInWishlist(product.id) ? "currentColor" : "none"} />
+                    </button>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-charcoal/90 via-charcoal/50 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                      <p className="font-sans text-cream text-sm italic">"{product.affirmation}"</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
                 <div className="p-6">
                   <span className="font-sans text-xs text-primary tracking-wide uppercase">{product.category}</span>
-                  <h3 className="font-serif text-lg font-semibold text-foreground mt-1 mb-1">{product.name}</h3>
+                  <Link to={`/product/${product.id}`}>
+                    <h3 className="font-serif text-lg font-semibold text-foreground mt-1 mb-1 hover:text-primary transition-colors">{product.name}</h3>
+                  </Link>
                   <p className="font-sans text-sm text-muted-foreground mb-3 line-clamp-1">{product.description}</p>
                   <div className="flex items-center gap-2 mb-4">
                     {product.colors.slice(0, 3).map((color, idx) => (
@@ -108,8 +131,9 @@ const Collections = () => {
                     <Button 
                       size="sm" 
                       className="bg-gradient-rose text-primary-foreground hover:opacity-90 transition-opacity font-sans text-xs rounded-full px-4"
+                      asChild
                     >
-                      Coming Soon
+                      <Link to={`/product/${product.id}`}>View Details</Link>
                     </Button>
                   </div>
                 </div>

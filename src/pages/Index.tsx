@@ -5,16 +5,10 @@ import { Input } from "@/components/ui/input";
 import Layout from "@/components/layout/Layout";
 import thriveLogo from "@/assets/thrive-logo.jpeg";
 import { featuredProducts } from "@/data/products";
-
-const affirmations = [
-  "I am worthy of love and healing",
-  "My story is my strength",
-  "Together we rise",
-  "Peace begins within me",
-  "I break cycles, not hearts",
-];
+import { getDailyAffirmation } from "@/data/affirmations";
 
 const Index = () => {
+  const todaysAffirmation = getDailyAffirmation();
   return (
     <Layout>
       {/* Hero Section - Immersive & Warm */}
@@ -162,10 +156,10 @@ const Index = () => {
           <div className="max-w-4xl mx-auto text-center text-primary-foreground">
             <Quote className="mx-auto mb-6 opacity-60" size={48} />
             <span className="font-sans text-sm font-medium tracking-widest uppercase mb-8 block opacity-80">
-              Today's Affirmation
+              Today's Affirmation — {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
             </span>
             <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl font-semibold mb-10 leading-tight">
-              {affirmations[0]}
+              {todaysAffirmation}
             </h2>
             <div className="w-32 h-1 bg-primary-foreground/40 mx-auto mb-10 rounded-full" />
             <p className="font-sans text-xl opacity-90 max-w-xl mx-auto leading-relaxed">
@@ -194,7 +188,7 @@ const Index = () => {
             {featuredProducts.map((product, i) => (
               <Link 
                 key={product.id} 
-                to="/collections"
+                to={`/product/${product.id}`}
                 className="group relative overflow-hidden rounded-2xl shadow-soft hover:shadow-elevated transition-all duration-500 bg-card"
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
