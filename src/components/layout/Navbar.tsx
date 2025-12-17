@@ -24,15 +24,12 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 sm:gap-3">
+          <Link to="/" className="flex items-center gap-3 sm:gap-4">
             <img
               src={thriveLogo}
               alt="Thrive Apparel Co."
-              className="h-12 w-12 sm:h-14 sm:w-14 rounded-full object-cover shadow-soft"
+              className="h-14 w-auto sm:h-16 md:h-20 object-contain"
             />
-            <span className="font-serif text-sm sm:text-xl font-semibold text-foreground">
-              Thrive Apparel Co.
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
