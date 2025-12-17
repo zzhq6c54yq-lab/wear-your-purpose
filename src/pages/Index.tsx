@@ -9,18 +9,43 @@ import { getDailyAffirmation } from "@/data/affirmations";
 
 const Index = () => {
   const todaysAffirmation = getDailyAffirmation();
+
+  const bannerMessages = [
+    "You're helping someone feel less alone.",
+    "Every purchase closes the gap in mental health care.",
+    "Wear your support. Make a difference.",
+    "1 in 5 adults need support. You're part of the solution.",
+    "Thank you for stepping up.",
+    "Mental health matters. You matter.",
+  ];
   
   return (
     <Layout>
-      {/* Hero Section - Cinematic Luxury */}
+      {/* Scrolling Banner */}
+      <div className="bg-primary/10 border-b border-primary/20 py-3 overflow-hidden">
+        <div className="marquee-wrapper">
+          <div className="marquee-content">
+            {[...bannerMessages, ...bannerMessages].map((msg, i) => (
+              <span key={i} className="flex items-center gap-8 mx-8 whitespace-nowrap">
+                <span className="font-sans text-xs tracking-luxury text-primary font-medium">
+                  {msg}
+                </span>
+                <Diamond className="text-primary/40" size={10} />
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Hero Section - Warm Luxury */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Dark gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+        {/* Warm gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-cream to-background" />
         
-        {/* Subtle gold ambient lighting */}
+        {/* Warm ambient lighting */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[200px] animate-pulse-slow" />
-          <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-bronze/5 rounded-full blur-[150px] animate-pulse-slow" style={{ animationDelay: "2s" }} />
+          <div className="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-rose-gold/10 rounded-full blur-[200px] animate-pulse-slow" />
+          <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[150px] animate-pulse-slow" style={{ animationDelay: "2s" }} />
         </div>
 
         {/* Decorative lines */}
@@ -31,29 +56,30 @@ const Index = () => {
         
         <div className="container mx-auto px-6 py-16 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            {/* Bronze Icon - No background */}
+            {/* Rose Gold Icon */}
             <div className="mb-12 animate-fade-in">
               <div className="relative inline-block">
-                <div className="absolute -inset-8 bg-primary/10 rounded-full blur-3xl animate-glow" />
+                <div className="absolute -inset-8 bg-rose-gold/15 rounded-full blur-3xl animate-glow" />
                 <img
                   src={thriveIcon}
                   alt="Thrive"
                   className="relative h-28 w-28 md:h-36 md:w-36 mx-auto object-contain drop-shadow-2xl animate-float"
+                  style={{ filter: "sepia(20%) saturate(150%) hue-rotate(-10deg)" }}
                 />
               </div>
             </div>
             
-            {/* Brand Name - Luxury Typography */}
+            {/* Brand Name - Warm Luxury Typography */}
             <div className="mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
               <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-medium text-foreground tracking-wide mb-2">
                 THRIVE
               </h1>
               <div className="flex items-center justify-center gap-4">
-                <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
-                <span className="font-sans text-xs md:text-sm tracking-ultra text-primary uppercase">
+                <div className="w-16 h-px bg-gradient-to-r from-transparent via-rose-gold to-transparent" />
+                <span className="font-sans text-xs md:text-sm tracking-ultra text-rose-gold uppercase">
                   Apparel Co.
                 </span>
-                <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
+                <div className="w-16 h-px bg-gradient-to-r from-transparent via-rose-gold to-transparent" />
               </div>
             </div>
             
@@ -72,7 +98,7 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in" style={{ animationDelay: "0.5s" }}>
               <Button 
                 size="lg" 
-                className="bg-gradient-gold text-primary-foreground hover:opacity-90 transition-all font-sans text-xs tracking-luxury uppercase px-12 py-7 rounded-none shadow-gold hover:shadow-lg group"
+                className="bg-gradient-rose-gold text-primary-foreground hover:opacity-90 transition-all font-sans text-xs tracking-luxury uppercase px-12 py-7 rounded-none shadow-rose hover:shadow-lg group"
                 asChild
               >
                 <Link to="/collections">
@@ -94,6 +120,43 @@ const Index = () => {
           <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in" style={{ animationDelay: "0.8s" }}>
             <span className="font-sans text-[10px] tracking-ultra text-muted-foreground/50 uppercase">Scroll</span>
             <ChevronDown className="text-primary/50 animate-bounce" size={20} />
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Statement - Prominent Display */}
+      <section className="py-20 bg-gradient-blush relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(15_60%_55%_/_0.08)_0%,transparent_70%)]" />
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <Heart className="text-primary" size={28} fill="currentColor" />
+              <span className="font-sans text-[10px] font-medium tracking-ultra text-primary uppercase">
+                Our Promise
+              </span>
+              <Heart className="text-primary" size={28} fill="currentColor" />
+            </div>
+            
+            <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-medium text-foreground mb-8 leading-relaxed">
+              Mental health affects <span className="text-gradient-rose font-semibold">1 in 5 adults</span> in the U.S., 
+              yet millions never receive the support they need.
+            </h2>
+            
+            <p className="font-sans text-base md:text-lg text-muted-foreground mb-8 leading-relaxed">
+              That's why a <span className="text-primary font-semibold">portion of every sale</span> is donated 
+              to help close the gap in access to care.
+            </p>
+            
+            <div className="bg-card/60 backdrop-blur-sm border border-primary/20 p-8 md:p-10 rounded-sm">
+              <p className="font-serif text-xl md:text-2xl text-foreground italic mb-6">
+                "When you wear this, you're doing more than making a statement — 
+                you're helping someone feel less alone."
+              </p>
+              <p className="font-sans text-sm tracking-luxury text-primary uppercase font-medium">
+                Thank you for stepping up.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -157,7 +220,7 @@ const Index = () => {
       {/* Daily Affirmation - Editorial Style */}
       <section className="py-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-card via-secondary to-card" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(38_70%_55%_/_0.08)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(15_60%_55%_/_0.08)_0%,transparent_70%)]" />
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -267,7 +330,7 @@ const Index = () => {
                   loved, and never alone in this journey."
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-gold rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-rose-gold rounded-full flex items-center justify-center">
                     <span className="font-serif text-lg text-primary-foreground">M</span>
                   </div>
                   <div>
@@ -299,7 +362,7 @@ const Index = () => {
                 placeholder="Your email"
                 className="bg-card border border-border/50 focus:border-primary/50 font-sans flex-1 py-6 rounded-none px-6 text-sm"
               />
-              <Button className="bg-gradient-gold text-primary-foreground hover:opacity-90 transition-all font-sans text-xs tracking-luxury uppercase py-6 px-10 rounded-none shadow-gold">
+              <Button className="bg-gradient-rose-gold text-primary-foreground hover:opacity-90 transition-all font-sans text-xs tracking-luxury uppercase py-6 px-10 rounded-none shadow-rose">
                 Subscribe
               </Button>
             </div>
