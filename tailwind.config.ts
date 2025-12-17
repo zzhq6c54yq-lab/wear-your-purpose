@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['Cormorant Garamond', 'serif'],
+        serif: ['Playfair Display', 'serif'],
         sans: ['Montserrat', 'sans-serif'],
       },
       colors: {
@@ -51,14 +51,29 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        "rose-gold": "hsl(var(--rose-gold))",
-        "rose-gold-light": "hsl(var(--rose-gold-light))",
-        copper: "hsl(var(--copper))",
+        // Luxury colors
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+          dark: "hsl(var(--gold-dark))",
+        },
+        bronze: {
+          DEFAULT: "hsl(var(--bronze))",
+          deep: "hsl(var(--bronze-deep))",
+        },
+        champagne: "hsl(var(--champagne))",
+        pearl: "hsl(var(--pearl))",
+        onyx: "hsl(var(--onyx))",
+        rose: {
+          DEFAULT: "hsl(var(--rose))",
+          soft: "hsl(var(--rose-soft))",
+        },
+        sage: "hsl(var(--sage-luxury))",
         cream: "hsl(var(--cream))",
-        "warm-beige": "hsl(var(--warm-beige))",
-        charcoal: "hsl(var(--charcoal))",
-        sage: "hsl(var(--sage))",
-        terracotta: "hsl(var(--terracotta))",
+        charcoal: {
+          DEFAULT: "hsl(var(--charcoal-deep))",
+          deep: "hsl(var(--charcoal-deep))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -92,12 +107,22 @@ export default {
           from: { opacity: "0", transform: "translateY(30px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        "glow": {
+          from: { boxShadow: "0 0 20px hsl(38 70% 55% / 0.2)" },
+          to: { boxShadow: "0 0 40px hsl(38 70% 55% / 0.4)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in": "fade-in 0.6s ease-out forwards",
-        "slide-up": "slide-up 0.6s ease-out forwards",
+        "fade-in": "fade-in 0.8s ease-out forwards",
+        "slide-up": "slide-up 0.8s ease-out forwards",
+        "float": "float 6s ease-in-out infinite",
+        "glow": "glow 3s ease-in-out infinite alternate",
       },
     },
   },
