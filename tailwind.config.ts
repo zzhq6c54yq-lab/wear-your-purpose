@@ -51,11 +51,15 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Luxury colors
+        // Warm Luxury Theme Colors
         gold: {
           DEFAULT: "hsl(var(--gold))",
           light: "hsl(var(--gold-light))",
           dark: "hsl(var(--gold-dark))",
+        },
+        "rose-gold": {
+          DEFAULT: "hsl(var(--rose-gold))",
+          light: "hsl(var(--rose-gold-light))",
         },
         bronze: {
           DEFAULT: "hsl(var(--bronze))",
@@ -63,17 +67,17 @@ export default {
         },
         champagne: "hsl(var(--champagne))",
         pearl: "hsl(var(--pearl))",
-        onyx: "hsl(var(--onyx))",
+        cream: "hsl(var(--cream))",
+        ivory: "hsl(var(--ivory))",
+        blush: "hsl(var(--blush))",
         rose: {
           DEFAULT: "hsl(var(--rose))",
           soft: "hsl(var(--rose-soft))",
         },
         sage: "hsl(var(--sage-luxury))",
-        cream: "hsl(var(--cream))",
-        charcoal: {
-          DEFAULT: "hsl(var(--charcoal-deep))",
-          deep: "hsl(var(--charcoal-deep))",
-        },
+        "warm-white": "hsl(var(--warm-white))",
+        terracotta: "hsl(var(--terracotta))",
+        coral: "hsl(var(--coral))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -112,8 +116,8 @@ export default {
           "50%": { transform: "translateY(-20px)" },
         },
         "glow": {
-          from: { boxShadow: "0 0 20px hsl(38 70% 55% / 0.2)" },
-          to: { boxShadow: "0 0 40px hsl(38 70% 55% / 0.4)" },
+          from: { boxShadow: "0 0 20px hsl(15 60% 55% / 0.2)" },
+          to: { boxShadow: "0 0 40px hsl(15 60% 55% / 0.4)" },
         },
       },
       animation: {

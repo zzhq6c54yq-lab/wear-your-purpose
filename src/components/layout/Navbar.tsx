@@ -31,26 +31,27 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? "bg-background/95 backdrop-blur-xl border-b border-primary/10 shadow-lg" 
+        ? "bg-background/95 backdrop-blur-xl border-b border-primary/10 shadow-soft" 
         : "bg-transparent"
     }`}>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-24">
-          {/* Logo */}
+          {/* Logo - Rose Gold Theme */}
           <Link to="/" className="flex items-center gap-4 group">
             <div className="relative">
-              <div className="absolute -inset-2 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -inset-2 bg-rose-gold/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <img
                 src={thriveIcon}
                 alt="Thrive"
                 className="relative h-12 w-12 object-contain drop-shadow-lg"
+                style={{ filter: "sepia(20%) saturate(150%) hue-rotate(-10deg)" }}
               />
             </div>
             <div className="hidden sm:block">
               <span className="font-serif text-2xl font-semibold text-foreground tracking-wide">
                 THRIVE
               </span>
-              <span className="font-sans text-[10px] tracking-luxury text-primary block -mt-1">
+              <span className="font-sans text-[10px] tracking-luxury text-rose-gold block -mt-1">
                 APPAREL CO.
               </span>
             </div>
@@ -86,7 +87,7 @@ const Navbar = () => {
                 </span>
               )}
             </Link>
-            <Button className="bg-gradient-gold text-primary-foreground hover:opacity-90 transition-all font-sans text-xs tracking-luxury uppercase px-8 py-6 rounded-none shadow-gold">
+            <Button className="bg-gradient-rose-gold text-primary-foreground hover:opacity-90 transition-all font-sans text-xs tracking-luxury uppercase px-8 py-6 rounded-none shadow-rose">
               Join Us
             </Button>
           </div>
@@ -129,7 +130,7 @@ const Navbar = () => {
                   <span className="font-sans text-sm">Wishlist ({wishlistCount})</span>
                 </Link>
               </div>
-              <Button className="bg-gradient-gold text-primary-foreground font-sans text-xs tracking-luxury uppercase py-6 rounded-none w-full mt-2">
+              <Button className="bg-gradient-rose-gold text-primary-foreground font-sans text-xs tracking-luxury uppercase py-6 rounded-none w-full mt-2">
                 Join Us
               </Button>
             </div>
