@@ -651,6 +651,10 @@
     letter-spacing: 0.25em;
   }
 
+  .tracking-couture {
+    letter-spacing: 0.35em;
+  }
+
   /* Text sizes for dramatic headers */
   .text-hero {
     font-size: clamp(3rem, 10vw, 8rem);
@@ -660,5 +664,253 @@
   .text-display {
     font-size: clamp(2.5rem, 8vw, 6rem);
     line-height: 1.1;
+  }
+
+  .text-editorial {
+    font-size: clamp(4rem, 15vw, 12rem);
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+  }
+
+  .text-couture {
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+  }
+}
+
+/* Ultra Luxury Additions */
+@layer components {
+  /* High-end fashion editorial style */
+  .luxury-editorial {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(45 35% 94%) 50%, hsl(var(--background)) 100%);
+  }
+
+  /* Gucci-style monogram pattern overlay */
+  .monogram-overlay {
+    background-image: repeating-linear-gradient(
+      45deg,
+      hsl(var(--gold) / 0.02) 0px,
+      hsl(var(--gold) / 0.02) 2px,
+      transparent 2px,
+      transparent 20px
+    );
+  }
+
+  /* Louis Vuitton inspired texture */
+  .lv-texture {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--gold) / 0.05) 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, hsl(var(--rose-gold) / 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Premium border with gold accent */
+  .border-couture {
+    border: 1px solid hsl(var(--gold) / 0.3);
+    position: relative;
+  }
+
+  .border-couture::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
+  }
+
+  /* Fashion house product card */
+  .product-card-couture {
+    position: relative;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border) / 0.5);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .product-card-couture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, hsl(var(--gold) / 0) 0%, hsl(var(--gold) / 0.05) 50%, hsl(var(--gold) / 0) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .product-card-couture:hover {
+    transform: translateY(-12px);
+    border-color: hsl(var(--gold) / 0.4);
+    box-shadow: 
+      0 30px 60px -12px hsl(25 30% 15% / 0.2),
+      0 18px 36px -18px hsl(var(--gold) / 0.15);
+  }
+
+  .product-card-couture:hover::before {
+    opacity: 1;
+  }
+
+  /* Runway collection badge */
+  .badge-runway {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--rose-gold)) 100%);
+    color: hsl(var(--background));
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+  }
+
+  /* Fashion editorial divider */
+  .divider-editorial {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .divider-editorial::before,
+  .divider-editorial::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.5), transparent);
+  }
+
+  /* Price styling like luxury brands */
+  .price-couture {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+  }
+
+  /* Category pill - fashion week style */
+  .category-pill-luxe {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid transparent;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .category-pill-luxe::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, hsl(var(--gold) / 0), hsl(var(--gold) / 0.1), hsl(var(--gold) / 0));
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+
+  .category-pill-luxe:hover::before {
+    transform: translateX(100%);
+  }
+
+  .category-pill-luxe.active {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
+    border-color: hsl(var(--foreground));
+  }
+
+  /* Image hover effect - editorial zoom */
+  .image-editorial {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .image-editorial img {
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .image-editorial:hover img {
+    transform: scale(1.08);
+  }
+
+  .image-editorial::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, hsl(var(--foreground) / 0.4) 0%, transparent 30%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .image-editorial:hover::after {
+    opacity: 1;
+  }
+
+  /* Button - fashion house style */
+  .btn-couture {
+    position: relative;
+    background: transparent;
+    border: 1px solid hsl(var(--foreground));
+    color: hsl(var(--foreground));
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+
+  .btn-couture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: hsl(var(--foreground));
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-couture:hover {
+    color: hsl(var(--background));
+  }
+
+  .btn-couture:hover::before {
+    transform: translateY(0);
+  }
+
+  .btn-couture span {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Gold CTA button */
+  .btn-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--rose-gold)) 100%);
+    color: hsl(var(--background));
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 1.25rem 3rem;
+    border: none;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 20px hsl(var(--gold) / 0.3);
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px hsl(var(--gold) / 0.4);
+  }
+
+  /* Scrolling fashion ticker */
+  .fashion-ticker {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
+    padding: 0.75rem 0;
+    overflow: hidden;
+  }
+
+  .fashion-ticker-content {
+    display: flex;
+    animation: ticker 40s linear infinite;
+    gap: 4rem;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 }
