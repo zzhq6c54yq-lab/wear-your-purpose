@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 // Import lifestyle images
@@ -64,7 +65,12 @@ const Community = () => {
 
   return (
     <Layout>
-      {/* Hero - Full Width with Ken Burns */}
+      <SEO 
+        title="Our Community"
+        description="Join the Thrive Apparel community. Read real stories of transformation, healing, and hope from people wearing their affirmations. Share your story and connect with others."
+        keywords="thrive community, mental health stories, healing testimonials, affirmation community, support network"
+        url="https://thrive-mental.store/community"
+      />
       <section ref={heroRef} className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 ken-burns">

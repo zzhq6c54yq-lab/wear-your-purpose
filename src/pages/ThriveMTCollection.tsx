@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Heart, ArrowRight, Brain, Star, Users, Sparkles, Shield, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { products } from "@/data/products";
 import { useWishlist } from "@/contexts/WishlistContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -125,7 +126,12 @@ const ThriveMTCollection = () => {
 
   return (
     <Layout>
-      {/* Fashion Ticker */}
+      <SEO 
+        title="ThriveMT Mental Health Collection"
+        description="Shop the exclusive ThriveMT Collection: 8 unique designs with mental health tips on every shirt. Each piece features a powerful message on the front and educational content on the back."
+        keywords="ThriveMT collection, mental health shirts, educational apparel, breathing exercises shirt, mental wellness clothing, anxiety awareness"
+        url="https://thrive-mental.store/thrivemt-collection"
+      />
       <div className="fashion-ticker">
         <div className="fashion-ticker-content">
           {[...Array(2)].map((_, i) => (

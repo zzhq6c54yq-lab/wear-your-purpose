@@ -3,6 +3,7 @@ import { ArrowRight, Heart, Users, Sparkles, Star, ChevronDown, Quote, Diamond, 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import thriveIcon from "@/assets/thrive-icon-bronze.png";
 import { featuredProducts } from "@/data/products";
 import { getDailyAffirmation } from "@/data/affirmations";
@@ -52,6 +53,12 @@ const Index = () => {
   
   return (
     <Layout>
+      <SEO 
+        title="Mental Health Clothing & Affirmation Apparel"
+        description="Shop luxury mental health clothing with positive affirmations. Thrive Apparel Co. creates healing fashion that supports mental health awareness. A portion of every sale is donated."
+        keywords="mental health clothing, affirmation apparel, healing fashion, ThriveMT, positive clothing, mental wellness fashion, inspirational wear"
+        url="https://thrive-mental.store"
+      />
       {/* Fashion Ticker Banner */}
       <div className="fashion-ticker">
         <div className="fashion-ticker-content">

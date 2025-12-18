@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Heart, ArrowRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { categories } from "@/data/products";
 import { useProducts } from "@/contexts/ProductContext";
 import { useWishlist } from "@/contexts/WishlistContext";
@@ -33,7 +34,12 @@ const Collections = () => {
 
   return (
     <Layout>
-      {/* Fashion Ticker Banner */}
+      <SEO 
+        title="Shop All Collections"
+        description="Browse all Thrive Apparel collections: T-shirts, hoodies, athleisure, lifestyle, kids, and the exclusive ThriveMT mental health collection. Luxury clothing with positive affirmations."
+        keywords="mental health t-shirts, affirmation hoodies, ThriveMT collection, athleisure, kids clothing, positive apparel shop"
+        url="https://thrive-mental.store/collections"
+      />
       <div className="fashion-ticker">
         <div className="fashion-ticker-content">
           {[...Array(2)].map((_, i) => (

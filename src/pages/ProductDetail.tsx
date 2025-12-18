@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Heart, ShoppingBag, Star, Ruler, Sparkles, Droplet, ThermometerSun, Brain, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { products } from "@/data/products";
 import { useWishlist } from "@/contexts/WishlistContext";
 import { useState } from "react";
@@ -108,7 +109,13 @@ const ProductDetail = () => {
 
   return (
     <Layout>
-      {/* Fashion Ticker for ThriveMT */}
+      <SEO 
+        title={product.name}
+        description={`${product.description}. "${product.affirmation}" - Shop this ${product.category} piece from Thrive Apparel Co.`}
+        keywords={`${product.name}, ${product.category}, mental health clothing, affirmation apparel, ${product.affirmation}`}
+        url={`https://thrive-mental.store/product/${product.id}`}
+        type="product"
+      />
       {isThriveMT && (
         <div className="fashion-ticker">
           <div className="fashion-ticker-content">
