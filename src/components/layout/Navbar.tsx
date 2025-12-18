@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Heart, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import thriveIcon from "@/assets/thrive-icon-bronze.png";
 import { useWishlist } from "@/contexts/WishlistContext";
 import ScrollProgress from "@/components/ScrollProgress";
+import HiddenProductLoader from "@/components/HiddenProductLoader";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -18,6 +19,9 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
+  const clickCountRef = useRef(0);
+  const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
   const { wishlistCount } = useWishlist();
 
@@ -28,6 +32,24 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Secret triple-click handler
+  const handleSecretClick = () => {
+    clickCountRef.current += 1;
+    
+    if (clickTimerRef.current) {
+      clearTimeout(clickTimerRef.current);
+    }
+    
+    if (clickCountRef.current >= 3) {
+      setShowLoader(true);
+      clickCountRef.current = 0;
+    } else {
+      clickTimerRef.current = setTimeout(() => {
+        clickCountRef.current = 0;
+      }, 500);
+    }
+  };
 
   return (
     <>
@@ -50,6 +72,17 @@ const Navbar = () => {
                     className="relative h-14 w-14 object-contain drop-shadow-lg group-hover:animate-pulse-glow transition-all duration-300"
                     style={{ filter: "sepia(20%) saturate(150%) hue-rotate(-10deg)" }}
                   />
+                  {/* Secret trigger - positioned over the heart area */}
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      handleSecretClick();
+                    }}
+                    className="absolute opacity-0 cursor-default"
+                    style={{ top: '35%', left: '30%', width: '40%', height: '35%' }}
+                    aria-hidden="true"
+                  />
                 </div>
               </div>
               <div className="hidden sm:block overflow-hidden">
@@ -61,6 +94,9 @@ const Navbar = () => {
                 </span>
               </div>
             </Link>
+            
+            {/* Hidden Product Loader */}
+            <HiddenProductLoader isOpen={showLoader} onClose={() => setShowLoader(false)} />
 
             {/* Desktop Navigation with Premium Hover Effects */}
             <div className="hidden lg:flex items-center gap-10">

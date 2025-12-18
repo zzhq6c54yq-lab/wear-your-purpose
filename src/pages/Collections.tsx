@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { Heart, ArrowRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
-import { products, categories } from "@/data/products";
+import { categories } from "@/data/products";
+import { useProducts } from "@/contexts/ProductContext";
 import { useWishlist } from "@/contexts/WishlistContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -13,13 +14,14 @@ import lifestyle10 from "@/assets/community/lifestyle-10.jpg";
 
 const Collections = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
+  const { allProducts } = useProducts();
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: productsRef, isVisible: productsVisible } = useScrollAnimation({ threshold: 0.05 });
 
   const filteredProducts = activeCategory === "All" 
-    ? products 
-    : products.filter(p => p.category === activeCategory);
+    ? allProducts 
+    : allProducts.filter(p => p.category === activeCategory);
 
   const handleWishlistToggle = (productId: number) => {
     if (isInWishlist(productId)) {
@@ -79,7 +81,7 @@ const Collections = () => {
             {/* Editorial stats */}
             <div className="flex items-center justify-center gap-16 mt-16 pt-10 border-t border-border/50">
               <div className="text-center">
-                <span className="font-serif text-4xl text-foreground">83+</span>
+                <span className="font-serif text-4xl text-foreground">{allProducts.length}+</span>
                 <p className="text-xs tracking-couture text-muted-foreground mt-2">PIECES</p>
               </div>
               <div className="w-px h-12 bg-gold/30" />
