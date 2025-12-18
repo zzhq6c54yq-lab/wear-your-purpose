@@ -2,6 +2,7 @@ import { Heart, Users, Leaf, Shield, ArrowRight, Quote, Sparkles, Diamond } from
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import thriveLogo from "@/assets/thrive-logo.jpeg";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -41,7 +42,12 @@ const About = () => {
 
   return (
     <Layout>
-      {/* Hero - Full Width with Ken Burns */}
+      <SEO 
+        title="Our Story & Mission"
+        description="Discover the mission behind Thrive Apparel Co. We create clothing that heals generational trauma, promotes unity, and breaks taboos around mental health through positive affirmations."
+        keywords="thrive apparel mission, mental health fashion brand, healing clothing company, generational trauma healing, unity clothing"
+        url="https://thrive-mental.store/about"
+      />
       <section ref={heroRef} className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 ken-burns">

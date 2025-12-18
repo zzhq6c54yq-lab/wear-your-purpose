@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Heart, Trash2, ShoppingBag, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { products } from "@/data/products";
 import { useWishlist } from "@/contexts/WishlistContext";
 
@@ -11,7 +12,11 @@ const Wishlist = () => {
 
   return (
     <Layout>
-      {/* Hero */}
+      <SEO 
+        title="My Wishlist"
+        description="View your saved Thrive Apparel items. Keep track of your favorite mental health clothing and affirmation apparel pieces."
+        url="https://thrive-mental.store/wishlist"
+      />
       <section className="py-20 bg-gradient-to-b from-secondary via-cream to-background relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-10 right-[20%] w-[300px] h-[300px] bg-rose/20 rounded-full blur-[100px]" />

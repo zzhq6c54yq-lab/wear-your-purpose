@@ -2,6 +2,7 @@ import { useState } from "react";
 import { RefreshCw, Share2, Heart, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 
 const affirmations = [
   { text: "I am worthy of love and healing", category: "Self-Worth" },
@@ -50,7 +51,12 @@ const Affirmations = () => {
 
   return (
     <Layout>
-      {/* Hero */}
+      <SEO 
+        title="Affirmation Gallery"
+        description="Explore our collection of healing affirmations. Daily positive mantras for self-worth, healing, unity, and growth. Find the words that speak to your soul."
+        keywords="positive affirmations, daily mantras, healing words, self-worth affirmations, mental health quotes"
+        url="https://thrive-mental.store/affirmations"
+      />
       <section className="py-24 bg-gradient-warm">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">

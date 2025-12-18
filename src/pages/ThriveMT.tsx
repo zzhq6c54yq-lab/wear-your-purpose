@@ -1,13 +1,19 @@
 import { ExternalLink, Heart, Brain, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import thriveLogo from "@/assets/thrive-logo.jpeg";
 import thriveMTQR from "@/assets/thrive-mt-qr.jpeg";
 
 const ThriveMT = () => {
   return (
     <Layout>
-      {/* Hero - Full Page Classy Ad */}
+      <SEO 
+        title="ThriveMT Partnership"
+        description="Discover the connection between Thrive Apparel Co. and Thrive Mental. Fashion meets mental wellness with resources, community support, and holistic healing tools."
+        keywords="ThriveMT, thrive mental health, mental wellness resources, healing partnership, mental health support"
+        url="https://thrive-mental.store/thrivemt"
+      />
       <section className="min-h-[90vh] flex items-center justify-center bg-gradient-warm relative overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
