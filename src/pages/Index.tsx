@@ -24,16 +24,16 @@ import lifestyle9 from "@/assets/community/lifestyle-9.jpg";
 import lifestyle10 from "@/assets/community/lifestyle-10.jpg";
 
 const lifestyleImages = [
-  { src: lifestyle1, alt: "Diverse friends laughing together", caption: "Unity in Diversity" },
-  { src: lifestyle2, alt: "Mother and daughter embrace", caption: "Generational Healing" },
-  { src: lifestyle3, alt: "Father and son playing", caption: "Breaking Cycles" },
-  { src: lifestyle4, alt: "Couple holding hands", caption: "Love Connects" },
-  { src: lifestyle5, alt: "Empowered women together", caption: "Strength in Sisterhood" },
-  { src: lifestyle6, alt: "Man meditating peacefully", caption: "Finding Peace" },
-  { src: lifestyle7, alt: "Multi-generational family", caption: "Family Legacy" },
-  { src: lifestyle8, alt: "Community gathering circle", caption: "We Are One" },
-  { src: lifestyle9, alt: "Woman with disability", caption: "Unstoppable Spirit" },
-  { src: lifestyle10, alt: "Kids playing joyfully", caption: "Pure Joy" },
+  { src: lifestyle1, alt: "Group around campfire in Thrive hoodies", caption: "Unity in Community" },
+  { src: lifestyle2, alt: "Friends laughing in Together We Rise tees", caption: "Together We Rise" },
+  { src: lifestyle3, alt: "Group at mountain sunrise in I Am Enough hoodies", caption: "I Am Enough" },
+  { src: lifestyle4, alt: "Rooftop gathering in My Story Is My Strength hoodies", caption: "My Story Is My Strength" },
+  { src: lifestyle5, alt: "Beach bonfire with Love Wins sweatshirts", caption: "Love Wins" },
+  { src: lifestyle6, alt: "Forest meditation in Breathe athleisure", caption: "Breathe Through It" },
+  { src: lifestyle7, alt: "Friends with Thrive Apparel Co logos on backs", caption: "We Are One" },
+  { src: lifestyle8, alt: "Coffee shop friends in You Matter tees", caption: "You Matter" },
+  { src: lifestyle9, alt: "Stargazing in I Break Cycles hoodies", caption: "Breaking Cycles" },
+  { src: lifestyle10, alt: "Festival celebration in Thrive apparel", caption: "Pure Joy" },
 ];
 
 const Index = () => {
@@ -420,7 +420,7 @@ const Index = () => {
           />
         </div>
         <div className="absolute inset-0 bg-foreground/50" />
-        <div className="affirmation-watermark affirmation-watermark-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary-foreground/10">
+        <div className="affirmation-watermark affirmation-watermark-multi top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary-foreground/10">
           I AM ENOUGH
         </div>
         <div className="container mx-auto px-6 h-full flex items-center justify-center relative z-10">
