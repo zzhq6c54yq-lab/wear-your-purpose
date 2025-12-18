@@ -77,6 +77,11 @@ const Community = () => {
           <div className="absolute inset-0 bg-foreground/65" />
         </div>
         
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary-foreground/5">
+          COMMUNITY
+        </div>
+        
         {/* Floating hearts */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(5)].map((_, i) => (
@@ -140,8 +145,16 @@ const Community = () => {
       </section>
 
       {/* Testimonials with Premium Cards */}
-      <section ref={testimonialRef} className="py-28 bg-background relative overflow-hidden">
+      <section ref={testimonialRef} className="py-36 bg-background relative overflow-hidden">
         <div className="absolute inset-0 aurora-bg opacity-10" />
+        
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-md affirmation-watermark-subtle top-1/4 -right-20 rotate-12">
+          STORIES
+        </div>
+        <div className="affirmation-watermark affirmation-watermark-sm bottom-20 -left-10 -rotate-6">
+          TRANSFORM
+        </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className={`text-center mb-20 transition-all duration-1000 ${testimonialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -202,7 +215,7 @@ const Community = () => {
       </section>
 
       {/* Full-width Community Image - Cinematic */}
-      <section className="relative h-[70vh] overflow-hidden">
+      <section className="relative h-[80vh] overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 ken-burns">
             <img 
@@ -212,6 +225,11 @@ const Community = () => {
             />
           </div>
           <div className="absolute inset-0 bg-foreground/60" />
+        </div>
+        
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary-foreground/5">
+          UNITED
         </div>
         
         <div className="container mx-auto px-6 h-full flex items-center justify-center relative z-10">
@@ -228,8 +246,13 @@ const Community = () => {
       </section>
 
       {/* Community Values with Premium Cards */}
-      <section ref={valuesRef} className="py-28 bg-gradient-blush relative overflow-hidden">
+      <section ref={valuesRef} className="py-36 bg-gradient-blush relative overflow-hidden">
         <div className="absolute inset-0 aurora-bg opacity-20" />
+        
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-md affirmation-watermark-intense top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          VALUES
+        </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-5xl mx-auto">
@@ -273,9 +296,17 @@ const Community = () => {
       </section>
 
       {/* Community Gallery - Premium Masonry */}
-      <section className="py-28 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+      <section className="py-36 bg-background relative overflow-hidden">
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-md affirmation-watermark-subtle top-20 -left-20 -rotate-12">
+          MOMENTS
+        </div>
+        <div className="affirmation-watermark affirmation-watermark-sm bottom-32 right-10 rotate-6">
+          CONNECTION
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
             <span className="font-sans text-[10px] font-medium tracking-ultra text-primary uppercase block mb-4">
               #ThriveApparelCo
             </span>
@@ -287,8 +318,8 @@ const Community = () => {
             </p>
           </div>
           
-          {/* Instagram-style Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
+          {/* Instagram-style Grid - Spread Out */}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 md:gap-6">
             {lifestyleImages.map((img, i) => (
               <div 
                 key={i} 
@@ -327,7 +358,7 @@ const Community = () => {
       </section>
 
       {/* Share Your Story - Premium Form */}
-      <section className="py-28 relative overflow-hidden">
+      <section className="py-36 relative overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src={lifestyle9} 
@@ -337,6 +368,11 @@ const Community = () => {
           <div className="absolute inset-0 bg-card/95" />
         </div>
         <div className="absolute inset-0 aurora-bg opacity-20" />
+        
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          YOUR STORY
+        </div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-2xl mx-auto">
