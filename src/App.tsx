@@ -12,6 +12,7 @@ import Wishlist from "./pages/Wishlist";
 import Affirmations from "./pages/Affirmations";
 import Community from "./pages/Community";
 import ThriveMT from "./pages/ThriveMT";
+import ThriveMTCollection from "./pages/ThriveMTCollection";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/affirmations" element={<Affirmations />} />
             <Route path="/community" element={<Community />} />
             <Route path="/thrive-mt" element={<ThriveMT />} />
+            <Route path="/thrivemt-collection" element={<ThriveMTCollection />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
