@@ -83,10 +83,20 @@ import kids13 from "@/assets/products/kids-13.jpg";
 import kids14 from "@/assets/products/kids-14.jpg";
 import kids15 from "@/assets/products/kids-15.jpg";
 
+// ThriveMT imports
+import thrivemtBreathe from "@/assets/products/thrivemt-breathe.jpg";
+import thrivemtProgress from "@/assets/products/thrivemt-progress.jpg";
+import thrivemtStorms from "@/assets/products/thrivemt-storms.jpg";
+import thrivemtPause from "@/assets/products/thrivemt-pause.jpg";
+import thrivemtNourish from "@/assets/products/thrivemt-nourish.jpg";
+import thrivemtBoundaries from "@/assets/products/thrivemt-boundaries.jpg";
+import thrivemtNotalone from "@/assets/products/thrivemt-notalone.jpg";
+import thrivemtHeal from "@/assets/products/thrivemt-heal.jpg";
+
 export interface Product {
   id: number;
   name: string;
-  category: "T-Shirts" | "Hoodies" | "Athleisure" | "Lifestyle" | "Kids";
+  category: "ThriveMT" | "T-Shirts" | "Hoodies" | "Athleisure" | "Lifestyle" | "Kids";
   price: number;
   affirmation: string;
   image: string;
@@ -95,6 +105,88 @@ export interface Product {
 }
 
 export const products: Product[] = [
+  // ============== THRIVEMT COLLECTION (8 items) ==============
+  {
+    id: 76,
+    name: "Breathe Through It Tee",
+    category: "ThriveMT",
+    price: 35,
+    affirmation: "Deep breaths reduce stress—try 4-7-8 breathing today",
+    image: thrivemtBreathe,
+    description: "Soft pastel blue-green gradient with lotus lung design. ThriveMT logo on sleeve. Premium mental health awareness piece.",
+    colors: ["Blue-Green Gradient", "Sage", "Mint"],
+  },
+  {
+    id: 77,
+    name: "Progress Over Perfection Tee",
+    category: "ThriveMT",
+    price: 35,
+    affirmation: "Celebrate small wins to build self-compassion",
+    image: thrivemtProgress,
+    description: "Warm yellow with gold puzzle arrow design. ThriveMT logo at collar. A reminder that growth matters more than perfection.",
+    colors: ["Golden Yellow", "Honey", "Amber"],
+  },
+  {
+    id: 78,
+    name: "Storms Pass, Strength Stays Tee",
+    category: "ThriveMT",
+    price: 36,
+    affirmation: "Resilience grows with support—reach out when clouds gather",
+    image: thrivemtStorms,
+    description: "Gray to emerald gradient with rooted tree design. ThriveMT logo at hem. Symbolizes strength through adversity.",
+    colors: ["Gray-Emerald Gradient", "Forest", "Storm"],
+  },
+  {
+    id: 79,
+    name: "Embrace the Pause Tee",
+    category: "ThriveMT",
+    price: 35,
+    affirmation: "Pausing helps manage anxiety—practice grounding in the moment",
+    image: thrivemtPause,
+    description: "Beige to soft pink gradient with hourglass heart design. ThriveMT logo on sleeve. Celebrates mindful pauses.",
+    colors: ["Beige-Pink Gradient", "Blush", "Sand"],
+  },
+  {
+    id: 80,
+    name: "Nourish Your Mind Tee",
+    category: "ThriveMT",
+    price: 35,
+    affirmation: "Self-care isn't selfish—hydrate, read, and rest for better mental clarity",
+    image: thrivemtNourish,
+    description: "Vibrant green-orange gradient with brain illustration filled with nourishing icons. ThriveMT logo at hem.",
+    colors: ["Green-Orange Gradient", "Sage", "Coral"],
+  },
+  {
+    id: 81,
+    name: "Boundaries Are Beautiful Tee",
+    category: "ThriveMT",
+    price: 36,
+    affirmation: "Setting boundaries protects your peace—it's key to emotional well-being",
+    image: thrivemtBoundaries,
+    description: "Deep purple with gold vine wreath design. ThriveMT logo at collar. Luxe fabric celebrating healthy boundaries.",
+    colors: ["Deep Purple", "Plum", "Amethyst"],
+  },
+  {
+    id: 82,
+    name: "You're Not Alone Tee",
+    category: "ThriveMT",
+    price: 35,
+    affirmation: "1 in 5 adults face mental health challenges—talking normalizes it",
+    image: thrivemtNotalone,
+    description: "Neutral cream with rainbow unity circle design. ThriveMT logo on sleeve. An inclusive reminder of community support.",
+    colors: ["Cream", "Natural", "Ivory"],
+  },
+  {
+    id: 83,
+    name: "Heal Together Tee",
+    category: "ThriveMT",
+    price: 36,
+    affirmation: "Community support accelerates healing—seek therapy or groups for connection",
+    image: thrivemtHeal,
+    description: "Warm terracotta with clasping hands and light rays. ThriveMT logo at collar. Celebrates collective healing.",
+    colors: ["Terracotta", "Clay", "Rust"],
+  },
+
   // ============== T-SHIRTS (15 items) ==============
   {
     id: 1,
@@ -856,6 +948,6 @@ export const products: Product[] = [
   },
 ];
 
-export const categories = ["All", "T-Shirts", "Hoodies", "Athleisure", "Lifestyle", "Kids"] as const;
+export const categories = ["All", "ThriveMT", "T-Shirts", "Hoodies", "Athleisure", "Lifestyle", "Kids"] as const;
 
-export const featuredProducts = products.filter(p => [1, 16, 31, 46, 61].includes(p.id));
+export const featuredProducts = products.filter(p => [76, 1, 16, 31, 46].includes(p.id));
