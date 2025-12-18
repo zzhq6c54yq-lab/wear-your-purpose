@@ -6,6 +6,9 @@ import SEO from "@/components/SEO";
 import { products } from "@/data/products";
 import { useWishlist } from "@/contexts/WishlistContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import FilmGrain from "@/components/FilmGrain";
+import CinematicVignette from "@/components/CinematicVignette";
+import LightLeak from "@/components/LightLeak";
 
 // Import ThriveMT products
 import thrivemtBreathe from "@/assets/products/thrivemt-breathe.jpg";
@@ -132,7 +135,11 @@ const ThriveMTCollection = () => {
         keywords="ThriveMT collection, mental health shirts, educational apparel, breathing exercises shirt, mental wellness clothing, anxiety awareness"
         url="https://thrive-mental.store/thrivemt-collection"
       />
-      <div className="fashion-ticker">
+      
+      {/* Cinematic Film Effects */}
+      <FilmGrain opacity={0.03} />
+      
+      <div className="fashion-ticker film-flicker">
         <div className="fashion-ticker-content">
           {[...Array(2)].map((_, i) => (
             <div key={i} className="flex items-center gap-16 whitespace-nowrap">

@@ -8,6 +8,9 @@ import { categories } from "@/data/products";
 import { useProducts } from "@/contexts/ProductContext";
 import { useWishlist } from "@/contexts/WishlistContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import FilmGrain from "@/components/FilmGrain";
+import CinematicVignette from "@/components/CinematicVignette";
+import LightLeak from "@/components/LightLeak";
 
 // Import lifestyle images
 import lifestyle4 from "@/assets/community/lifestyle-4.jpg";
@@ -40,7 +43,11 @@ const Collections = () => {
         keywords="mental health t-shirts, affirmation hoodies, ThriveMT collection, athleisure, kids clothing, positive apparel shop"
         url="https://thrive-mental.store/collections"
       />
-      <div className="fashion-ticker">
+      
+      {/* Cinematic Film Effects */}
+      <FilmGrain opacity={0.03} />
+      
+      <div className="fashion-ticker film-flicker">
         <div className="fashion-ticker-content">
           {[...Array(2)].map((_, i) => (
             <div key={i} className="flex items-center gap-16 whitespace-nowrap">
