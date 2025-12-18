@@ -1,14 +1,47 @@
+# Thrive Apparel Co. - robots.txt
+# https://thrive-mental.store
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Disallow admin/internal paths
+Disallow: /api/
+Disallow: /_/
+
+# Google-specific
 User-agent: Googlebot
 Allow: /
 
+# Bing-specific
 User-agent: Bingbot
+Allow: /
+
+# Social Media Crawlers - Allow all for rich previews
+User-agent: facebookexternalhit
 Allow: /
 
 User-agent: Twitterbot
 Allow: /
 
-User-agent: facebookexternalhit
+User-agent: LinkedInBot
 Allow: /
 
-User-agent: *
+User-agent: Pinterest
 Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://thrive-mental.store/sitemap.xml
+
+# Host
+Host: https://thrive-mental.store
