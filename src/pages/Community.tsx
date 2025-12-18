@@ -5,6 +5,9 @@ import { Textarea } from "@/components/ui/textarea";
 import Layout from "@/components/layout/Layout";
 import SEO from "@/components/SEO";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import FilmGrain from "@/components/FilmGrain";
+import CinematicVignette from "@/components/CinematicVignette";
+import LightLeak from "@/components/LightLeak";
 
 // Import lifestyle images
 import lifestyle1 from "@/assets/community/lifestyle-1.jpg";
@@ -71,7 +74,16 @@ const Community = () => {
         keywords="thrive community, mental health stories, healing testimonials, affirmation community, support network"
         url="https://thrive-mental.store/community"
       />
-      <section ref={heroRef} className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+      
+      {/* Cinematic Film Effects */}
+      <FilmGrain opacity={0.03} />
+      
+      <section ref={heroRef} className="relative min-h-[80vh] flex items-center justify-center overflow-hidden film-color-grade-warm">
+        {/* Cinematic Vignette */}
+        <CinematicVignette intensity="dramatic" />
+        
+        {/* Light Leak Effect */}
+        <LightLeak variant="rose" animated={true} />
         <div className="absolute inset-0">
           <div className="absolute inset-0 ken-burns">
             <img 

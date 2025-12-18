@@ -927,3 +927,199 @@
     100% { transform: translateX(-50%); }
   }
 }
+
+/* ============================================
+   CINEMATIC FILM EFFECTS
+   ============================================ */
+@layer utilities {
+  /* Film grain animation */
+  .animate-film-grain {
+    animation: film-grain 0.5s steps(10) infinite;
+  }
+
+  @keyframes film-grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -10%); }
+    20% { transform: translate(-15%, 5%); }
+    30% { transform: translate(7%, -25%); }
+    40% { transform: translate(-5%, 25%); }
+    50% { transform: translate(-15%, 10%); }
+    60% { transform: translate(15%, 0%); }
+    70% { transform: translate(0%, 15%); }
+    80% { transform: translate(3%, 35%); }
+    90% { transform: translate(-10%, 10%); }
+  }
+
+  /* Light leak animations */
+  .animate-light-leak {
+    animation: light-leak 8s ease-in-out infinite;
+  }
+
+  .animate-light-leak-slow {
+    animation: light-leak-slow 12s ease-in-out infinite;
+  }
+
+  .animate-light-leak-pulse {
+    animation: light-leak-pulse 6s ease-in-out infinite;
+  }
+
+  @keyframes light-leak {
+    0%, 100% { opacity: 0.3; transform: translate(0, 0) scale(1); }
+    50% { opacity: 0.6; transform: translate(-5%, 5%) scale(1.1); }
+  }
+
+  @keyframes light-leak-slow {
+    0%, 100% { opacity: 0.2; transform: translate(0, 0) scale(1); }
+    50% { opacity: 0.5; transform: translate(10%, -5%) scale(1.15); }
+  }
+
+  @keyframes light-leak-pulse {
+    0%, 100% { opacity: 0.1; transform: scale(0.9); }
+    50% { opacity: 0.4; transform: scale(1.2); }
+  }
+
+  /* Cinematic slow reveal animations */
+  .animate-cinematic-fade {
+    animation: cinematic-fade 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-cinematic-slide {
+    animation: cinematic-slide 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-cinematic-zoom {
+    animation: cinematic-zoom 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes cinematic-fade {
+    0% { opacity: 0; filter: blur(10px); }
+    100% { opacity: 1; filter: blur(0); }
+  }
+
+  @keyframes cinematic-slide {
+    0% { opacity: 0; transform: translateY(40px); filter: blur(4px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+  }
+
+  @keyframes cinematic-zoom {
+    0% { opacity: 0; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  /* Film color grading - warm vintage tones */
+  .film-color-grade {
+    filter: sepia(0.05) saturate(1.1) contrast(1.02) brightness(1.02);
+  }
+
+  .film-color-grade-warm {
+    filter: sepia(0.08) saturate(1.15) contrast(1.05) brightness(1.03) hue-rotate(-3deg);
+  }
+
+  .film-color-grade-cool {
+    filter: sepia(0.02) saturate(0.95) contrast(1.05) brightness(1.02) hue-rotate(5deg);
+  }
+
+  /* Letterbox cinematic bars */
+  .letterbox {
+    position: relative;
+  }
+
+  .letterbox::before,
+  .letterbox::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 5%;
+    background: hsl(var(--foreground));
+    z-index: 50;
+    pointer-events: none;
+  }
+
+  .letterbox::before {
+    top: 0;
+  }
+
+  .letterbox::after {
+    bottom: 0;
+  }
+
+  /* Subtle film scratches */
+  .film-scratches {
+    position: relative;
+  }
+
+  .film-scratches::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(90deg, transparent 98%, hsl(var(--foreground) / 0.02) 98%, hsl(var(--foreground) / 0.02) 98.5%, transparent 98.5%),
+      linear-gradient(90deg, transparent 45%, hsl(var(--foreground) / 0.01) 45%, hsl(var(--foreground) / 0.01) 45.2%, transparent 45.2%);
+    pointer-events: none;
+    z-index: 30;
+    animation: film-scratch-move 10s linear infinite;
+  }
+
+  @keyframes film-scratch-move {
+    0% { transform: translateX(-2%); }
+    100% { transform: translateX(2%); }
+  }
+
+  /* Focus pull effect */
+  .focus-pull {
+    transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .focus-pull:hover {
+    filter: blur(0) !important;
+  }
+
+  .focus-pull-blur {
+    filter: blur(2px);
+  }
+
+  /* Slow motion feel for interactions */
+  .cinematic-transition {
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .cinematic-transition-slow {
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Depth of field simulation */
+  .depth-blur-bg {
+    backdrop-filter: blur(2px);
+  }
+
+  /* Film flicker subtle effect */
+  .film-flicker {
+    animation: film-flicker 4s infinite;
+  }
+
+  @keyframes film-flicker {
+    0%, 100% { opacity: 1; }
+    92% { opacity: 1; }
+    93% { opacity: 0.97; }
+    94% { opacity: 1; }
+    96% { opacity: 0.98; }
+    97% { opacity: 1; }
+  }
+
+  /* Cinematic text shadow */
+  .text-shadow-cinematic {
+    text-shadow: 0 4px 30px hsl(var(--foreground) / 0.3);
+  }
+
+  /* Warm spotlight effect */
+  .spotlight-warm {
+    background: radial-gradient(
+      ellipse 80% 60% at 50% 40%,
+      hsl(var(--champagne-gold) / 0.08) 0%,
+      transparent 70%
+    );
+  }
+}

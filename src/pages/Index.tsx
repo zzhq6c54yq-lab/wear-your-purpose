@@ -10,6 +10,9 @@ import { getDailyAffirmation } from "@/data/affirmations";
 import ImpactCounter from "@/components/ImpactCounter";
 import { AnimatedText, AnimatedLine, GoldUnderline } from "@/components/AnimatedText";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import FilmGrain from "@/components/FilmGrain";
+import CinematicVignette from "@/components/CinematicVignette";
+import LightLeak from "@/components/LightLeak";
 
 // Import lifestyle images
 import lifestyle1 from "@/assets/community/lifestyle-1.jpg";
@@ -59,8 +62,12 @@ const Index = () => {
         keywords="mental health clothing, affirmation apparel, healing fashion, ThriveMT, positive clothing, mental wellness fashion, inspirational wear"
         url="https://thrive-mental.store"
       />
+      
+      {/* Cinematic Film Effects */}
+      <FilmGrain opacity={0.03} />
+      
       {/* Fashion Ticker Banner */}
-      <div className="fashion-ticker">
+      <div className="fashion-ticker film-flicker">
         <div className="fashion-ticker-content">
           {[...Array(2)].map((_, i) => (
             <div key={i} className="flex items-center gap-16 whitespace-nowrap">
@@ -80,7 +87,13 @@ const Index = () => {
       </div>
 
       {/* CINEMATIC HERO SECTION */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden film-color-grade-warm">
+        {/* Cinematic Vignette */}
+        <CinematicVignette intensity="dramatic" />
+        
+        {/* Light Leak Effect */}
+        <LightLeak variant="golden" animated={true} />
+        
         {/* Ken Burns Effect Background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 ken-burns">
