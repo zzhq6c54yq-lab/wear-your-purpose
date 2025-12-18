@@ -8,11 +8,11 @@ import ScrollProgress from "@/components/ScrollProgress";
 
 const navLinks = [
   { name: "Home", path: "/" },
-  { name: "About", path: "/about" },
   { name: "Collections", path: "/collections" },
+  { name: "ThriveMT Collection", path: "/thrivemt-collection", highlight: true },
+  { name: "About", path: "/about" },
   { name: "Affirmations", path: "/affirmations" },
   { name: "Community", path: "/community" },
-  { name: "Thrive MT", path: "/thrive-mt" },
 ];
 
 const Navbar = () => {

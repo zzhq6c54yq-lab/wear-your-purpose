@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Heart, Users, Sparkles, Star, ChevronDown, Quote, Diamond } from "lucide-react";
+import { ArrowRight, Heart, Users, Sparkles, Star, ChevronDown, Quote, Diamond, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Layout from "@/components/layout/Layout";
@@ -52,19 +52,23 @@ const Index = () => {
   
   return (
     <Layout>
-      {/* Scrolling Banner */}
-      <div className="bg-primary/10 border-b border-primary/20 py-3 overflow-hidden">
-        <div className="marquee-wrapper">
-          <div className="marquee-content">
-            {[...bannerMessages, ...bannerMessages].map((msg, i) => (
-              <span key={i} className="flex items-center gap-8 mx-8 whitespace-nowrap">
-                <span className="font-sans text-xs tracking-luxury text-primary font-medium">
-                  {msg}
-                </span>
-                <Diamond className="text-primary/40" size={10} />
-              </span>
-            ))}
-          </div>
+      {/* Fashion Ticker Banner */}
+      <div className="fashion-ticker">
+        <div className="fashion-ticker-content">
+          {[...Array(2)].map((_, i) => (
+            <div key={i} className="flex items-center gap-16 whitespace-nowrap">
+              <span className="text-xs tracking-couture">LUXURY MENTAL HEALTH APPAREL</span>
+              <Star className="w-2 h-2" fill="currentColor" />
+              <span className="text-xs tracking-couture">THRIVEMT COLLECTION NOW LIVE</span>
+              <Star className="w-2 h-2" fill="currentColor" />
+              <span className="text-xs tracking-couture">WEAR YOUR AFFIRMATION</span>
+              <Star className="w-2 h-2" fill="currentColor" />
+              <span className="text-xs tracking-couture">HEALING THROUGH FASHION</span>
+              <Star className="w-2 h-2" fill="currentColor" />
+              <span className="text-xs tracking-couture">127+ LIVES TOUCHED</span>
+              <Star className="w-2 h-2" fill="currentColor" />
+            </div>
+          ))}
         </div>
       </div>
 
@@ -329,11 +333,81 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ThriveMT Collection Callout - NEW */}
+      <section className="py-32 bg-foreground text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 lv-texture" style={{ filter: 'invert(1)' }} />
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+            <div>
+              <div className="inline-flex items-center gap-3 badge-runway mb-8">
+                <Brain size={14} />
+                <span>NEW COLLECTION</span>
+              </div>
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary-foreground mb-8 leading-tight">
+                The <span className="text-gradient-gold">ThriveMT</span>
+                <br />
+                Collection
+              </h2>
+              <p className="font-sans text-lg text-primary-foreground/80 mb-8 leading-relaxed">
+                8 exclusive designs created in partnership with ThriveMT Mental Health. 
+                Each piece carries a powerful message on the front and educational mental health 
+                tips on the back. Fashion meets healing.
+              </p>
+              <div className="flex flex-wrap gap-4 mb-10">
+                <div className="text-center px-6 py-4 border border-primary-foreground/20">
+                  <span className="font-serif text-3xl text-primary-foreground block">8</span>
+                  <span className="text-xs tracking-couture text-primary-foreground/60">DESIGNS</span>
+                </div>
+                <div className="text-center px-6 py-4 border border-primary-foreground/20">
+                  <span className="font-serif text-3xl text-primary-foreground block">1 in 5</span>
+                  <span className="text-xs tracking-couture text-primary-foreground/60">AFFECTED</span>
+                </div>
+                <div className="text-center px-6 py-4 border border-primary-foreground/20">
+                  <span className="font-serif text-3xl text-primary-foreground block">∞</span>
+                  <span className="text-xs tracking-couture text-primary-foreground/60">IMPACT</span>
+                </div>
+              </div>
+              <Button className="btn-gold" asChild>
+                <Link to="/thrivemt-collection">
+                  <span className="flex items-center gap-2">
+                    Explore Collection <ArrowRight size={14} />
+                  </span>
+                </Link>
+              </Button>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {featuredProducts.filter(p => p.category === 'ThriveMT' || p.id === 76).slice(0, 4).length > 0 ? (
+                featuredProducts.slice(0, 4).map((product, i) => (
+                  <Link 
+                    key={product.id}
+                    to={`/product/${product.id}`}
+                    className="aspect-square overflow-hidden border border-primary-foreground/10 group"
+                  >
+                    <img 
+                      src={product.image} 
+                      alt={product.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </Link>
+                ))
+              ) : (
+                <div className="col-span-2 aspect-video bg-primary-foreground/10 flex items-center justify-center">
+                  <span className="text-primary-foreground/40 text-sm">Coming Soon</span>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Full-width Image Divider */}
       <section className="relative h-[50vh] overflow-hidden">
         <div className="absolute inset-0 ken-burns">
           <img 
-            src={lifestyle9} 
+            src={lifestyle9}
             alt="Unstoppable spirit"
             className="w-full h-full object-cover"
           />
