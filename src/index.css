@@ -141,6 +141,19 @@
     font-size: clamp(3rem, 6vw, 6rem);
   }
 
+  /* Multi-word affirmation watermarks - smaller to fit full phrases */
+  .affirmation-watermark-multi {
+    font-size: clamp(3rem, 8vw, 10rem);
+    text-align: center;
+    line-height: 1;
+  }
+
+  .affirmation-watermark-multi-sm {
+    font-size: clamp(2rem, 5vw, 6rem);
+    text-align: center;
+    line-height: 1;
+  }
+
   .affirmation-watermark-intense {
     color: hsl(var(--rose-gold) / 0.07);
   }

@@ -19,16 +19,16 @@ import lifestyle9 from "@/assets/community/lifestyle-9.jpg";
 import lifestyle10 from "@/assets/community/lifestyle-10.jpg";
 
 const lifestyleImages = [
-  { src: lifestyle1, alt: "Diverse friends laughing together" },
-  { src: lifestyle2, alt: "Mother and daughter embrace" },
-  { src: lifestyle3, alt: "Father and son playing" },
-  { src: lifestyle4, alt: "Couple holding hands" },
-  { src: lifestyle5, alt: "Empowered women together" },
-  { src: lifestyle6, alt: "Man meditating peacefully" },
-  { src: lifestyle7, alt: "Multi-generational family" },
-  { src: lifestyle8, alt: "Community gathering circle" },
-  { src: lifestyle9, alt: "Woman with disability" },
-  { src: lifestyle10, alt: "Kids playing joyfully" },
+  { src: lifestyle1, alt: "Group around campfire in Thrive hoodies" },
+  { src: lifestyle2, alt: "Friends laughing in Together We Rise tees" },
+  { src: lifestyle3, alt: "Group at mountain sunrise in I Am Enough hoodies" },
+  { src: lifestyle4, alt: "Rooftop gathering in My Story Is My Strength hoodies" },
+  { src: lifestyle5, alt: "Beach bonfire with Love Wins sweatshirts" },
+  { src: lifestyle6, alt: "Forest meditation in Breathe athleisure" },
+  { src: lifestyle7, alt: "Friends with Thrive Apparel Co logos on backs" },
+  { src: lifestyle8, alt: "Coffee shop friends in You Matter tees" },
+  { src: lifestyle9, alt: "Stargazing in I Break Cycles hoodies" },
+  { src: lifestyle10, alt: "Festival celebration in Thrive apparel" },
 ];
 
 const testimonials = [
