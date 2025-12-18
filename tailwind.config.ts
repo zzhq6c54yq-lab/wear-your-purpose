@@ -119,6 +119,43 @@ export default {
           from: { boxShadow: "0 0 20px hsl(15 60% 55% / 0.2)" },
           to: { boxShadow: "0 0 40px hsl(15 60% 55% / 0.4)" },
         },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 20px hsl(15 60% 55% / 0.3)" },
+          "50%": { boxShadow: "0 0 40px hsl(15 60% 55% / 0.5), 0 0 60px hsl(38 70% 55% / 0.3)" },
+        },
+        "shimmer-gold": {
+          "0%": { backgroundPosition: "-200% center" },
+          "100%": { backgroundPosition: "200% center" },
+        },
+        "float-heart": {
+          "0%": { transform: "translateY(100vh) rotate(0deg)", opacity: "0" },
+          "10%": { opacity: "0.6" },
+          "90%": { opacity: "0.6" },
+          "100%": { transform: "translateY(-20vh) rotate(360deg)", opacity: "0" },
+        },
+        "sparkle": {
+          "0%, 100%": { transform: "scale(1) rotate(0deg)", opacity: "1" },
+          "50%": { transform: "scale(1.2) rotate(180deg)", opacity: "0.8" },
+        },
+        "ken-burns": {
+          "0%": { transform: "scale(1) translate(0, 0)" },
+          "50%": { transform: "scale(1.1) translate(-2%, -2%)" },
+          "100%": { transform: "scale(1) translate(0, 0)" },
+        },
+        "reveal-up": {
+          from: { opacity: "0", transform: "translateY(40px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "scale-in": {
+          from: { opacity: "0", transform: "scale(0.9)" },
+          to: { opacity: "1", transform: "scale(1)" },
+        },
+        "aurora": {
+          "0%, 100%": { opacity: "0.5", transform: "scale(1) rotate(0deg)" },
+          "25%": { opacity: "0.7", transform: "scale(1.1) rotate(2deg)" },
+          "50%": { opacity: "0.5", transform: "scale(1) rotate(0deg)" },
+          "75%": { opacity: "0.7", transform: "scale(1.1) rotate(-2deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -127,6 +164,14 @@ export default {
         "slide-up": "slide-up 0.8s ease-out forwards",
         "float": "float 6s ease-in-out infinite",
         "glow": "glow 3s ease-in-out infinite alternate",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "shimmer-gold": "shimmer-gold 3s ease-in-out infinite",
+        "float-heart": "float-heart 8s ease-in-out infinite",
+        "sparkle": "sparkle 2s ease-in-out infinite",
+        "ken-burns": "ken-burns 20s ease-in-out infinite",
+        "reveal-up": "reveal-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards",
+        "scale-in": "scale-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards",
+        "aurora": "aurora 15s ease-in-out infinite",
       },
     },
   },
