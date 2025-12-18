@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Heart, Filter } from "lucide-react";
+import { Heart, Filter, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import { products, categories } from "@/data/products";
 import { useWishlist } from "@/contexts/WishlistContext";
+
+// Import lifestyle images
+import lifestyle4 from "@/assets/community/lifestyle-4.jpg";
+import lifestyle10 from "@/assets/community/lifestyle-10.jpg";
 
 const Collections = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -24,22 +28,26 @@ const Collections = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="py-24 bg-gradient-to-br from-secondary via-cream to-accent/20 relative overflow-hidden">
+      {/* Hero - With Background Image */}
+      <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-rose/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
+          <img 
+            src={lifestyle4} 
+            alt="Love and connection"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-foreground/60" />
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="font-sans text-sm font-medium tracking-widest text-primary uppercase mb-4 block">
+            <span className="font-sans text-sm font-medium tracking-widest text-primary-foreground/70 uppercase mb-4 block">
               Shop With Purpose
             </span>
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold text-foreground mb-6">
-              Our <span className="text-gradient-rose">Collections</span>
+            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold text-primary-foreground mb-6">
+              Our <span className="text-rose-gold-light">Collections</span>
             </h1>
-            <p className="font-sans text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            <p className="font-sans text-lg text-primary-foreground/80 leading-relaxed max-w-2xl mx-auto">
               Every piece carries an affirmation. Every purchase supports a movement. 
               Find the message that speaks to your soul.
             </p>
@@ -59,7 +67,7 @@ const Collections = () => {
                   onClick={() => setActiveCategory(category)}
                   className={`font-sans text-sm font-medium tracking-wide px-5 py-2 rounded-full transition-all ${
                     activeCategory === category
-                      ? "bg-gradient-rose text-primary-foreground shadow-soft"
+                      ? "bg-gradient-rose-gold text-primary-foreground shadow-soft"
                       : "bg-card text-muted-foreground hover:text-foreground hover:bg-secondary border border-border/50"
                   }`}
                 >
@@ -130,7 +138,7 @@ const Collections = () => {
                     <span className="font-sans text-xl font-semibold text-foreground">${product.price}</span>
                     <Button 
                       size="sm" 
-                      className="bg-gradient-rose text-primary-foreground hover:opacity-90 transition-opacity font-sans text-xs rounded-full px-4"
+                      className="bg-gradient-rose-gold text-primary-foreground hover:opacity-90 transition-opacity font-sans text-xs rounded-full px-4"
                       asChild
                     >
                       <Link to={`/product/${product.id}`}>View Details</Link>
@@ -143,26 +151,31 @@ const Collections = () => {
         </div>
       </section>
 
-      {/* Coming Soon Banner */}
-      <section className="py-20 bg-gradient-to-br from-primary via-rose to-copper text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.2)_0%,transparent_50%)]" />
+      {/* Coming Soon Banner - With Background Image */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={lifestyle10} 
+            alt="Joyful future"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-foreground/70" />
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-serif text-4xl md:text-5xl font-semibold mb-6">
+            <h2 className="font-serif text-4xl md:text-5xl font-semibold text-primary-foreground mb-6">
               Full Shop Coming Soon
             </h2>
-            <p className="font-sans text-lg opacity-90 mb-8 leading-relaxed">
+            <p className="font-sans text-lg text-primary-foreground/90 mb-8 leading-relaxed">
               We're putting the finishing touches on our e-commerce experience. 
               Sign up to be notified when we launch and get early access.
             </p>
             <Button 
               size="lg"
-              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-sans rounded-full px-10 py-6 shadow-lg"
+              className="bg-primary-foreground text-foreground hover:bg-primary-foreground/90 font-sans text-xs tracking-luxury uppercase rounded-none px-10 py-6 shadow-lg"
             >
-              Join the Waitlist
+              Join the Waitlist <ArrowRight className="ml-2" size={14} />
             </Button>
           </div>
         </div>

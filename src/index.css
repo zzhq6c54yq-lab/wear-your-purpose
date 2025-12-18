@@ -264,6 +264,37 @@
       transform: translateX(-50%);
     }
   }
+
+  /* Image warm filter */
+  .image-warm-filter {
+    filter: sepia(10%) saturate(110%) brightness(105%);
+  }
+
+  /* Parallax container */
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Image overlay styles */
+  .image-overlay-warm::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, hsl(15 60% 55% / 0.1), hsl(38 70% 55% / 0.05));
+    pointer-events: none;
+  }
+
+  /* Masonry grid item heights */
+  .masonry-tall {
+    grid-row: span 2;
+  }
+
+  .masonry-wide {
+    grid-column: span 2;
+  }
 }
 
 @layer utilities {
