@@ -82,6 +82,11 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background" />
         </div>
         
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          THRIVE
+        </div>
+        
         {/* Aurora Effect */}
         <div className="absolute inset-0 aurora-bg opacity-40" />
         
@@ -193,11 +198,19 @@ const Index = () => {
       <ImpactCounter />
 
       {/* Mission Statement - With Premium Animation */}
-      <section ref={missionRef} className="py-24 bg-gradient-blush relative overflow-hidden">
+      <section ref={missionRef} className="py-32 bg-gradient-blush relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(15_60%_55%_/_0.08)_0%,transparent_70%)]" />
         
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-md affirmation-watermark-intense top-1/4 -left-10 -rotate-12">
+          HEAL
+        </div>
+        <div className="affirmation-watermark affirmation-watermark-sm bottom-10 right-10 rotate-6">
+          YOU MATTER
+        </div>
+        
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
             {/* Image Side with Premium Effects */}
             <div className={`relative order-2 lg:order-1 transition-all duration-1000 ${missionVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               <div className="absolute -inset-6 bg-gradient-rose-gold/20 rounded-3xl blur-3xl animate-pulse-slow" />
@@ -255,8 +268,13 @@ const Index = () => {
       <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       {/* What We Stand For - Premium Cards */}
-      <section ref={ethosRef} className="py-32 bg-background relative overflow-hidden">
+      <section ref={ethosRef} className="py-40 bg-background relative overflow-hidden">
         <div className="absolute inset-0 aurora-bg opacity-20" />
+        
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-lg affirmation-watermark-subtle top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          LOVE WINS
+        </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className={`text-center mb-20 transition-all duration-1000 ${ethosVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -311,8 +329,28 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Full-width Image Divider */}
+      <section className="relative h-[50vh] overflow-hidden">
+        <div className="absolute inset-0 ken-burns">
+          <img 
+            src={lifestyle9} 
+            alt="Unstoppable spirit"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-foreground/50" />
+        <div className="affirmation-watermark affirmation-watermark-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary-foreground/10">
+          I AM ENOUGH
+        </div>
+        <div className="container mx-auto px-6 h-full flex items-center justify-center relative z-10">
+          <p className="font-serif text-3xl md:text-4xl lg:text-5xl text-primary-foreground text-center italic max-w-3xl">
+            "Your story is your strength"
+          </p>
+        </div>
+      </section>
+
       {/* Daily Affirmation - Immersive Full Screen */}
-      <section className="py-48 relative overflow-hidden">
+      <section className="py-56 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 ken-burns">
             <img 
@@ -322,6 +360,11 @@ const Index = () => {
             />
           </div>
           <div className="absolute inset-0 bg-foreground/75" />
+        </div>
+        
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary-foreground/5">
+          PEACE
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
@@ -343,9 +386,17 @@ const Index = () => {
       </section>
 
       {/* Community Gallery - Premium Masonry */}
-      <section className="py-28 bg-background relative overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-20">
+      <section className="py-36 bg-background relative overflow-hidden">
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-md affirmation-watermark-subtle top-20 -right-20 rotate-12">
+          TOGETHER
+        </div>
+        <div className="affirmation-watermark affirmation-watermark-sm bottom-32 -left-10 -rotate-6">
+          WE RISE
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-24">
             <Sparkles className="mx-auto mb-4 text-rose-gold animate-sparkle" size={24} />
             <span className="font-sans text-[10px] font-medium tracking-ultra text-primary uppercase block mb-4">
               Real People. Real Stories.
@@ -358,8 +409,8 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Premium Masonry Gallery */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {/* Premium Masonry Gallery - Spread Out */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
             {lifestyleImages.slice(0, 8).map((img, i) => (
               <div 
                 key={i}
@@ -401,8 +452,13 @@ const Index = () => {
       </section>
 
       {/* Featured Products - Premium Grid */}
-      <section className="py-32 bg-card relative overflow-hidden">
+      <section className="py-40 bg-card relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,hsl(38_70%_55%_/_0.05)_0%,transparent_50%)]" />
+        
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-lg affirmation-watermark-subtle top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          I AM WORTHY
+        </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-20">
@@ -464,7 +520,7 @@ const Index = () => {
       </section>
 
       {/* Full-width Community Banner - Cinematic */}
-      <section className="relative h-[80vh] overflow-hidden">
+      <section className="relative h-[90vh] overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 ken-burns">
             <img 
@@ -474,6 +530,11 @@ const Index = () => {
             />
           </div>
           <div className="absolute inset-0 bg-foreground/65" />
+        </div>
+        
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-lg top-1/2 right-10 -translate-y-1/2 text-primary-foreground/5">
+          UNITY
         </div>
         
         <div className="container mx-auto px-6 h-full flex items-center relative z-10">
@@ -503,9 +564,14 @@ const Index = () => {
       </section>
 
       {/* Testimonial with Premium Animation */}
-      <section className="py-32 bg-background relative overflow-hidden">
+      <section className="py-40 bg-background relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         <div className="absolute inset-0 aurora-bg opacity-10" />
+        
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-md affirmation-watermark-subtle -left-20 top-1/3 -rotate-90">
+          BELIEVE
+        </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
@@ -545,7 +611,7 @@ const Index = () => {
       </section>
 
       {/* Newsletter - Premium Design */}
-      <section className="py-28 relative overflow-hidden">
+      <section className="py-36 relative overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src={lifestyle4} 
@@ -555,6 +621,11 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-blush/95" />
         </div>
         <div className="absolute inset-0 aurora-bg opacity-30" />
+        
+        {/* AFFIRMATION WATERMARK */}
+        <div className="affirmation-watermark affirmation-watermark-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          CONNECT
+        </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-2xl mx-auto text-center">

@@ -84,15 +84,14 @@ const ImpactCounter = () => {
         <div className="grid md:grid-cols-3 gap-12 max-w-4xl mx-auto">
           <CounterItem
             icon={Heart}
-            end={12847}
+            end={127}
             suffix="+"
             label="Lives Touched"
             delay={0}
           />
           <CounterItem
             icon={DollarSign}
-            end={45000}
-            suffix="+"
+            end={1420}
             prefix="$"
             label="Donated to Mental Health"
             delay={200}
