@@ -93,7 +93,7 @@ const Index = () => {
       </div>
 
       {/* CINEMATIC HERO SECTION */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden film-color-grade-warm">
+      <section ref={heroRef} className="relative min-h-screen flex items-start pt-24 sm:pt-28 md:pt-32 justify-center overflow-hidden film-color-grade-warm">
         {/* Cinematic Vignette */}
         <CinematicVignette intensity="dramatic" />
         
