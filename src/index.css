@@ -1197,8 +1197,8 @@
       transform: scale(1);
     }
     25% { 
-      opacity: 0.9; 
-      transform: scale(1.05);
+      opacity: 0.95; 
+      transform: scale(1.08);
     }
     50% { 
       opacity: 0.7; 
@@ -1206,12 +1206,12 @@
     }
     75% { 
       opacity: 1; 
-      transform: scale(1.02);
+      transform: scale(1.03);
     }
   }
 
   .animate-fire-glow {
-    animation: fire-glow 2s ease-in-out infinite;
+    animation: fire-glow 1.8s ease-in-out infinite;
   }
 
   /* Fire flicker animation - rapid flicker effect */
@@ -1221,45 +1221,45 @@
       transform: scale(1) translateY(0);
     }
     10% { 
-      opacity: 0.7;
-      transform: scale(1.02) translateY(-1%);
+      opacity: 0.75;
+      transform: scale(1.03) translateY(-2%);
     }
     20% { 
       opacity: 0.5;
-      transform: scale(0.98) translateY(1%);
+      transform: scale(0.97) translateY(1%);
     }
     30% { 
-      opacity: 0.8;
-      transform: scale(1.03) translateY(-2%);
+      opacity: 0.85;
+      transform: scale(1.05) translateY(-3%);
     }
     40% { 
+      opacity: 0.55;
+      transform: scale(0.96) translateY(0);
+    }
+    50% { 
+      opacity: 0.8;
+      transform: scale(1.02) translateY(-2%);
+    }
+    60% { 
+      opacity: 0.5;
+      transform: scale(0.98) translateY(1%);
+    }
+    70% { 
+      opacity: 0.9;
+      transform: scale(1.04) translateY(-2%);
+    }
+    80% { 
       opacity: 0.6;
       transform: scale(0.97) translateY(0);
     }
-    50% { 
+    90% { 
       opacity: 0.75;
       transform: scale(1.01) translateY(-1%);
-    }
-    60% { 
-      opacity: 0.55;
-      transform: scale(0.99) translateY(1%);
-    }
-    70% { 
-      opacity: 0.85;
-      transform: scale(1.02) translateY(-1%);
-    }
-    80% { 
-      opacity: 0.65;
-      transform: scale(0.98) translateY(0);
-    }
-    90% { 
-      opacity: 0.7;
-      transform: scale(1) translateY(-1%);
     }
   }
 
   .animate-fire-flicker {
-    animation: fire-flicker 1.5s ease-in-out infinite;
+    animation: fire-flicker 1.2s ease-in-out infinite;
   }
 
   /* Fire ambient glow - slow breathing effect */
@@ -1269,40 +1269,131 @@
       transform: scale(1);
     }
     50% { 
-      opacity: 0.7;
-      transform: scale(1.08);
+      opacity: 0.75;
+      transform: scale(1.1);
     }
   }
 
   .animate-fire-ambient {
-    animation: fire-ambient 3s ease-in-out infinite;
+    animation: fire-ambient 2.5s ease-in-out infinite;
+  }
+
+  /* Fire light cast animation */
+  @keyframes fire-cast {
+    0%, 100% { 
+      opacity: 0.6;
+    }
+    30% { 
+      opacity: 0.8;
+    }
+    60% { 
+      opacity: 0.5;
+    }
+    80% { 
+      opacity: 0.7;
+    }
+  }
+
+  .animate-fire-cast {
+    animation: fire-cast 2s ease-in-out infinite;
+  }
+
+  /* Flame dance animation */
+  @keyframes flame-dance {
+    0%, 100% {
+      transform: scaleY(1) scaleX(1) skewX(0deg);
+      opacity: 0.7;
+    }
+    15% {
+      transform: scaleY(1.15) scaleX(0.9) skewX(-3deg);
+      opacity: 0.8;
+    }
+    30% {
+      transform: scaleY(0.9) scaleX(1.1) skewX(2deg);
+      opacity: 0.6;
+    }
+    45% {
+      transform: scaleY(1.2) scaleX(0.85) skewX(-4deg);
+      opacity: 0.85;
+    }
+    60% {
+      transform: scaleY(0.85) scaleX(1.05) skewX(3deg);
+      opacity: 0.65;
+    }
+    75% {
+      transform: scaleY(1.1) scaleX(0.95) skewX(-2deg);
+      opacity: 0.75;
+    }
+    90% {
+      transform: scaleY(0.95) scaleX(1) skewX(1deg);
+      opacity: 0.7;
+    }
+  }
+
+  .animate-flame-dance {
+    animation: flame-dance 0.8s ease-in-out infinite;
   }
 
   /* Ember rising animation */
   @keyframes ember-rise {
     0% {
       transform: translateY(0) translateX(0) scale(1);
-      opacity: 0.9;
+      opacity: 0.95;
     }
-    25% {
-      transform: translateY(-30vh) translateX(10px) scale(0.8);
-      opacity: 0.7;
+    20% {
+      transform: translateY(-20vh) translateX(8px) scale(0.85);
+      opacity: 0.8;
     }
-    50% {
-      transform: translateY(-60vh) translateX(-5px) scale(0.6);
-      opacity: 0.5;
+    40% {
+      transform: translateY(-40vh) translateX(-6px) scale(0.7);
+      opacity: 0.6;
     }
-    75% {
-      transform: translateY(-80vh) translateX(8px) scale(0.4);
-      opacity: 0.3;
+    60% {
+      transform: translateY(-55vh) translateX(10px) scale(0.5);
+      opacity: 0.4;
+    }
+    80% {
+      transform: translateY(-70vh) translateX(-4px) scale(0.35);
+      opacity: 0.2;
     }
     100% {
-      transform: translateY(-100vh) translateX(-3px) scale(0.2);
+      transform: translateY(-85vh) translateX(5px) scale(0.2);
       opacity: 0;
     }
   }
 
   .animate-ember-rise {
     animation: ember-rise linear infinite;
+  }
+
+  /* Smoke rising animation */
+  @keyframes smoke-rise {
+    0% {
+      transform: translateY(0) translateX(0) scale(0.8);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.15;
+    }
+    30% {
+      transform: translateY(-25vh) translateX(15px) scale(1.2);
+      opacity: 0.12;
+    }
+    50% {
+      transform: translateY(-45vh) translateX(-10px) scale(1.6);
+      opacity: 0.1;
+    }
+    70% {
+      transform: translateY(-60vh) translateX(20px) scale(2);
+      opacity: 0.06;
+    }
+    100% {
+      transform: translateY(-80vh) translateX(-5px) scale(2.5);
+      opacity: 0;
+    }
+  }
+
+  .animate-smoke-rise {
+    animation: smoke-rise ease-out infinite;
   }
 }
