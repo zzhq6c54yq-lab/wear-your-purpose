@@ -122,65 +122,66 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: hsl(var(--rose-gold) / 0.12);
+    color: hsl(var(--rose-gold) / 0.15);
     pointer-events: none;
     user-select: none;
     white-space: nowrap;
-    z-index: 0;
-    text-shadow: 0 0 80px hsl(var(--rose-gold) / 0.15);
+    z-index: 1;
+    text-shadow: 0 0 80px hsl(var(--rose-gold) / 0.2);
+    max-width: 100vw;
   }
 
   .affirmation-watermark-lg {
-    font-size: clamp(8rem, 18vw, 20rem);
-    text-shadow: 0 0 120px hsl(var(--rose-gold) / 0.2);
+    font-size: clamp(5rem, 15vw, 18rem);
+    text-shadow: 0 0 120px hsl(var(--rose-gold) / 0.25);
   }
 
   .affirmation-watermark-md {
-    font-size: clamp(4rem, 10vw, 12rem);
-    text-shadow: 0 0 80px hsl(var(--rose-gold) / 0.18);
+    font-size: clamp(2.5rem, 8vw, 10rem);
+    text-shadow: 0 0 80px hsl(var(--rose-gold) / 0.2);
   }
 
   .affirmation-watermark-sm {
-    font-size: clamp(3rem, 6vw, 6rem);
-    text-shadow: 0 0 60px hsl(var(--rose-gold) / 0.15);
+    font-size: clamp(1.5rem, 5vw, 5rem);
+    text-shadow: 0 0 60px hsl(var(--rose-gold) / 0.18);
   }
 
   /* Multi-word affirmation watermarks - smaller to fit full phrases */
   .affirmation-watermark-multi {
-    font-size: clamp(3rem, 8vw, 10rem);
+    font-size: clamp(2rem, 6vw, 8rem);
     text-align: center;
     line-height: 1;
-    text-shadow: 0 0 100px hsl(var(--rose-gold) / 0.2);
+    text-shadow: 0 0 100px hsl(var(--rose-gold) / 0.25);
   }
 
   .affirmation-watermark-multi-sm {
-    font-size: clamp(2rem, 5vw, 6rem);
+    font-size: clamp(1.5rem, 4vw, 5rem);
     text-align: center;
     line-height: 1;
   }
 
   .affirmation-watermark-intense {
-    color: hsl(var(--rose-gold) / 0.18);
-    text-shadow: 0 0 100px hsl(var(--rose-gold) / 0.25);
+    color: hsl(var(--rose-gold) / 0.22);
+    text-shadow: 0 0 100px hsl(var(--rose-gold) / 0.3);
   }
 
   .affirmation-watermark-subtle {
-    color: hsl(var(--rose-gold) / 0.08);
-    text-shadow: 0 0 60px hsl(var(--rose-gold) / 0.1);
+    color: hsl(var(--rose-gold) / 0.1);
+    text-shadow: 0 0 60px hsl(var(--rose-gold) / 0.12);
   }
   
   /* Glowing visible watermark for hero sections */
   .affirmation-watermark-glow {
-    color: hsl(var(--rose-gold) / 0.2);
+    color: hsl(var(--rose-gold) / 0.25);
     text-shadow: 
-      0 0 60px hsl(var(--rose-gold) / 0.3),
-      0 0 120px hsl(var(--rose-gold) / 0.2),
-      0 0 180px hsl(var(--rose-gold) / 0.1);
+      0 0 60px hsl(var(--rose-gold) / 0.35),
+      0 0 120px hsl(var(--rose-gold) / 0.25),
+      0 0 180px hsl(var(--rose-gold) / 0.15);
     animation: affirmation-pulse 4s ease-in-out infinite;
   }
   
   @keyframes affirmation-pulse {
-    0%, 100% { opacity: 0.8; }
+    0%, 100% { opacity: 0.85; }
     50% { opacity: 1; }
   }
 
