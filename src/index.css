@@ -94,6 +94,18 @@
   }
 }
 
+/* Hero text visibility utilities */
+.hero-text-glow {
+  text-shadow: 
+    0 0 30px rgba(255, 255, 255, 0.6),
+    0 0 60px rgba(255, 255, 255, 0.4),
+    0 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text-shadow {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
 @layer base {
   * {
     @apply border-border;

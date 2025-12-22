@@ -6,7 +6,7 @@ interface VideoHeroProps {
   fallbackImage: string;
   alt: string;
   className?: string;
-  overlayOpacity?: "light" | "medium" | "heavy";
+  overlayOpacity?: "subtle" | "light" | "medium" | "heavy";
 }
 
 const VideoHero = memo(({ 
@@ -20,6 +20,7 @@ const VideoHero = memo(({
   const [videoError, setVideoError] = useState(false);
 
   const overlayStyles = {
+    subtle: "from-background/75 via-background/60 to-background/80",
     light: "from-background/40 via-background/25 to-background/60",
     medium: "from-background/60 via-background/40 to-background/70",
     heavy: "from-background/80 via-background/60 to-background/90"
