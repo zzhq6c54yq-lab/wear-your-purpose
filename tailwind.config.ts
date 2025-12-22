@@ -142,6 +142,14 @@ export default {
           "50%": { transform: "scale(1.1) translate(-2%, -2%)" },
           "100%": { transform: "scale(1) translate(0, 0)" },
         },
+        "ken-burns-in": {
+          "0%": { transform: "scale(1) translate(0, 0)" },
+          "100%": { transform: "scale(1.12) translate(-2%, -1%)" },
+        },
+        "ken-burns-out": {
+          "0%": { transform: "scale(1.12) translate(-2%, -1%)" },
+          "100%": { transform: "scale(1) translate(0, 0)" },
+        },
         "reveal-up": {
           from: { opacity: "0", transform: "translateY(40px)" },
           to: { opacity: "1", transform: "translateY(0)" },
@@ -156,6 +164,15 @@ export default {
           "50%": { opacity: "0.5", transform: "scale(1) rotate(0deg)" },
           "75%": { opacity: "0.7", transform: "scale(1.1) rotate(-2deg)" },
         },
+        "parallax-float": {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "25%": { transform: "translateY(-10px) rotate(1deg)" },
+          "75%": { transform: "translateY(10px) rotate(-1deg)" },
+        },
+        "cinematic-reveal": {
+          "0%": { opacity: "0", transform: "translateY(30px) scale(0.98)", filter: "blur(4px)" },
+          "100%": { opacity: "1", transform: "translateY(0) scale(1)", filter: "blur(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -169,9 +186,13 @@ export default {
         "float-heart": "float-heart 8s ease-in-out infinite",
         "sparkle": "sparkle 2s ease-in-out infinite",
         "ken-burns": "ken-burns 20s ease-in-out infinite",
+        "ken-burns-in": "ken-burns-in 20s ease-out forwards",
+        "ken-burns-out": "ken-burns-out 20s ease-out forwards",
         "reveal-up": "reveal-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards",
         "scale-in": "scale-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards",
         "aurora": "aurora 15s ease-in-out infinite",
+        "parallax-float": "parallax-float 8s ease-in-out infinite",
+        "cinematic-reveal": "cinematic-reveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards",
       },
     },
   },

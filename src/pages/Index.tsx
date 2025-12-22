@@ -13,6 +13,10 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import FilmGrain from "@/components/FilmGrain";
 import CinematicVignette from "@/components/CinematicVignette";
 import LightLeak from "@/components/LightLeak";
+import KenBurnsImage from "@/components/KenBurnsImage";
+import TiltCard from "@/components/TiltCard";
+import ScrollReveal from "@/components/ScrollReveal";
+import ParallaxSection from "@/components/ParallaxSection";
 
 // Import lifestyle images
 import lifestyle1 from "@/assets/community/lifestyle-1.jpg";
@@ -95,44 +99,48 @@ const Index = () => {
         <LightLeak variant="golden" animated={true} />
         
         {/* Ken Burns Effect Background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 ken-burns">
-            <img 
-              src={lifestyle1} 
-              alt="Community" 
-              className="w-full h-full object-cover"
-            />
+        <KenBurnsImage 
+          src={lifestyle1} 
+          alt="Community"
+          duration={25}
+          overlay={true}
+        />
+        
+        {/* Extra gradient overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background z-[1]" />
+        
+        {/* AFFIRMATION WATERMARK with Parallax */}
+        <ParallaxSection speed={0.2} className="absolute inset-0 z-[2]">
+          <div className="affirmation-watermark affirmation-watermark-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            THRIVE
           </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background" />
-        </div>
+        </ParallaxSection>
         
-        {/* AFFIRMATION WATERMARK */}
-        <div className="affirmation-watermark affirmation-watermark-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          THRIVE
-        </div>
+        {/* Aurora Effect with Parallax */}
+        <ParallaxSection speed={0.15} direction="down" className="absolute inset-0 z-[3]">
+          <div className="absolute inset-0 aurora-bg opacity-40" />
+        </ParallaxSection>
         
-        {/* Aurora Effect */}
-        <div className="absolute inset-0 aurora-bg opacity-40" />
-        
-        {/* Floating Hearts */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Floating Hearts with different parallax speeds */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-[4]">
           {[...Array(8)].map((_, i) => (
-            <Heart
-              key={i}
-              className="absolute text-rose-gold/10 animate-float-heart"
-              size={16 + i * 6}
-              style={{
-                left: `${10 + i * 12}%`,
-                animationDelay: `${i * 1.2}s`,
-                animationDuration: `${6 + i * 0.8}s`,
-              }}
-              fill="currentColor"
-            />
+            <ParallaxSection key={i} speed={0.1 + i * 0.05}>
+              <Heart
+                className="absolute text-rose-gold/10 animate-float-heart"
+                size={16 + i * 6}
+                style={{
+                  left: `${10 + i * 12}%`,
+                  animationDelay: `${i * 1.2}s`,
+                  animationDuration: `${6 + i * 0.8}s`,
+                }}
+                fill="currentColor"
+              />
+            </ParallaxSection>
           ))}
         </div>
 
         {/* Decorative lines */}
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none z-[5]">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-t from-transparent via-primary/30 to-transparent" />
         </div>
@@ -333,21 +341,27 @@ const Index = () => {
                 desc: "Transform generational patterns into generational blessings. Wear your evolution with pride.",
               },
             ].map((item, i) => (
-              <div 
-                key={i} 
-                className={`group relative p-12 border border-border/50 hover:border-primary/30 transition-all duration-700 bg-card/50 hover-lift testimonial-card ${ethosVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                style={{ transitionDelay: `${i * 150}ms` }}
+              <TiltCard 
+                key={i}
+                tiltAmount={8}
+                glareEnabled={true}
+                className="group"
               >
-                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/0 group-hover:via-primary/50 to-transparent transition-all duration-700" />
-                <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-r from-transparent via-primary/0 group-hover:via-primary/50 to-transparent transition-all duration-700" />
-                
-                <div className="mb-8 relative">
-                  <div className="absolute -inset-4 bg-rose-gold/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <item.icon className="relative text-primary group-hover:animate-pulse-glow transition-all duration-300" size={36} strokeWidth={1} />
+                <div 
+                  className={`relative p-12 border border-border/50 hover:border-primary/30 transition-all duration-700 bg-card/50 testimonial-card ${ethosVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  style={{ transitionDelay: `${i * 150}ms` }}
+                >
+                  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/0 group-hover:via-primary/50 to-transparent transition-all duration-700" />
+                  <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-r from-transparent via-primary/0 group-hover:via-primary/50 to-transparent transition-all duration-700" />
+                  
+                  <div className="mb-8 relative">
+                    <div className="absolute -inset-4 bg-rose-gold/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <item.icon className="relative text-primary group-hover:animate-pulse-glow transition-all duration-300" size={36} strokeWidth={1} />
+                  </div>
+                  <h3 className="font-serif text-2xl font-medium text-foreground mb-4 group-hover:text-gradient-rose transition-all duration-300">{item.title}</h3>
+                  <p className="font-sans text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="font-serif text-2xl font-medium text-foreground mb-4 group-hover:text-gradient-rose transition-all duration-300">{item.title}</h3>
-                <p className="font-sans text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
+              </TiltCard>
             ))}
           </div>
         </div>
