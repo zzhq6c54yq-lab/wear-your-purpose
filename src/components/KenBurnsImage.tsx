@@ -6,6 +6,7 @@ interface KenBurnsImageProps {
   className?: string;
   duration?: number;
   overlay?: boolean;
+  overlayIntensity?: "subtle" | "light" | "medium" | "heavy";
 }
 
 const KenBurnsImage = memo(({ 
@@ -13,8 +14,15 @@ const KenBurnsImage = memo(({
   alt, 
   className = "",
   duration = 20,
-  overlay = true
+  overlay = true,
+  overlayIntensity = "medium"
 }: KenBurnsImageProps) => {
+  const overlayStyles = {
+    subtle: "from-background/30 via-background/15 to-background/40",
+    light: "from-background/50 via-background/30 to-background/60",
+    medium: "from-background/70 via-background/50 to-background/80",
+    heavy: "from-background/90 via-background/70 to-background"
+  };
   const [direction, setDirection] = useState<'in' | 'out'>('in');
 
   useEffect(() => {
@@ -37,7 +45,7 @@ const KenBurnsImage = memo(({
         style={{ animationDuration: `${duration}s` }}
       />
       {overlay && (
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+        <div className={`absolute inset-0 bg-gradient-to-b ${overlayStyles[overlayIntensity]}`} />
       )}
     </div>
   );

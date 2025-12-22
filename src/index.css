@@ -115,30 +115,34 @@
 }
 
 @layer components {
-  /* Affirmation Watermark Backgrounds */
+  /* Affirmation Watermark Backgrounds - Enhanced Visibility */
   .affirmation-watermark {
     position: absolute;
     font-family: var(--font-serif);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: hsl(var(--rose-gold) / 0.04);
+    color: hsl(var(--rose-gold) / 0.12);
     pointer-events: none;
     user-select: none;
     white-space: nowrap;
     z-index: 0;
+    text-shadow: 0 0 80px hsl(var(--rose-gold) / 0.15);
   }
 
   .affirmation-watermark-lg {
     font-size: clamp(8rem, 18vw, 20rem);
+    text-shadow: 0 0 120px hsl(var(--rose-gold) / 0.2);
   }
 
   .affirmation-watermark-md {
     font-size: clamp(4rem, 10vw, 12rem);
+    text-shadow: 0 0 80px hsl(var(--rose-gold) / 0.18);
   }
 
   .affirmation-watermark-sm {
     font-size: clamp(3rem, 6vw, 6rem);
+    text-shadow: 0 0 60px hsl(var(--rose-gold) / 0.15);
   }
 
   /* Multi-word affirmation watermarks - smaller to fit full phrases */
@@ -146,6 +150,7 @@
     font-size: clamp(3rem, 8vw, 10rem);
     text-align: center;
     line-height: 1;
+    text-shadow: 0 0 100px hsl(var(--rose-gold) / 0.2);
   }
 
   .affirmation-watermark-multi-sm {
@@ -155,11 +160,28 @@
   }
 
   .affirmation-watermark-intense {
-    color: hsl(var(--rose-gold) / 0.07);
+    color: hsl(var(--rose-gold) / 0.18);
+    text-shadow: 0 0 100px hsl(var(--rose-gold) / 0.25);
   }
 
   .affirmation-watermark-subtle {
-    color: hsl(var(--rose-gold) / 0.025);
+    color: hsl(var(--rose-gold) / 0.08);
+    text-shadow: 0 0 60px hsl(var(--rose-gold) / 0.1);
+  }
+  
+  /* Glowing visible watermark for hero sections */
+  .affirmation-watermark-glow {
+    color: hsl(var(--rose-gold) / 0.2);
+    text-shadow: 
+      0 0 60px hsl(var(--rose-gold) / 0.3),
+      0 0 120px hsl(var(--rose-gold) / 0.2),
+      0 0 180px hsl(var(--rose-gold) / 0.1);
+    animation: affirmation-pulse 4s ease-in-out infinite;
+  }
+  
+  @keyframes affirmation-pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
   }
 
   .font-serif {

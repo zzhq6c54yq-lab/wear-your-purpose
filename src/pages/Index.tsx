@@ -14,6 +14,7 @@ import FilmGrain from "@/components/FilmGrain";
 import CinematicVignette from "@/components/CinematicVignette";
 import LightLeak from "@/components/LightLeak";
 import KenBurnsImage from "@/components/KenBurnsImage";
+import VideoHero from "@/components/VideoHero";
 import TiltCard from "@/components/TiltCard";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxSection from "@/components/ParallaxSection";
@@ -98,20 +99,16 @@ const Index = () => {
         {/* Light Leak Effect */}
         <LightLeak variant="golden" animated={true} />
         
-        {/* Ken Burns Effect Background */}
-        <KenBurnsImage 
-          src={lifestyle1} 
+        {/* Video Hero Background - Falls back to Ken Burns */}
+        <VideoHero 
+          fallbackImage={lifestyle1}
           alt="Community"
-          duration={25}
-          overlay={true}
+          overlayOpacity="light"
         />
         
-        {/* Extra gradient overlay for better text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background z-[1]" />
-        
-        {/* AFFIRMATION WATERMARK with Parallax */}
+        {/* AFFIRMATION WATERMARK with Parallax - Enhanced Glow */}
         <ParallaxSection speed={0.2} className="absolute inset-0 z-[2]">
-          <div className="affirmation-watermark affirmation-watermark-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="affirmation-watermark affirmation-watermark-lg affirmation-watermark-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             THRIVE
           </div>
         </ParallaxSection>
@@ -437,41 +434,38 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Full-width Image Divider */}
+      {/* Full-width Image Divider - Enhanced Visibility */}
       <section className="relative h-[50vh] overflow-hidden">
-        <div className="absolute inset-0 ken-burns">
-          <img 
-            src={lifestyle9}
-            alt="Unstoppable spirit"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 bg-foreground/50" />
-        <div className="affirmation-watermark affirmation-watermark-multi top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary-foreground/10">
+        <KenBurnsImage 
+          src={lifestyle9}
+          alt="Unstoppable spirit"
+          duration={20}
+          overlay={true}
+          overlayIntensity="light"
+        />
+        <div className="affirmation-watermark affirmation-watermark-multi affirmation-watermark-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary-foreground/20">
           I AM ENOUGH
         </div>
         <div className="container mx-auto px-6 h-full flex items-center justify-center relative z-10">
-          <p className="font-serif text-3xl md:text-4xl lg:text-5xl text-primary-foreground text-center italic max-w-3xl">
+          <p className="font-serif text-3xl md:text-4xl lg:text-5xl text-primary-foreground text-center italic max-w-3xl drop-shadow-lg">
             "Your story is your strength"
           </p>
         </div>
       </section>
 
-      {/* Daily Affirmation - Immersive Full Screen */}
+      {/* Daily Affirmation - Immersive Full Screen with Enhanced Background */}
       <section className="py-56 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 ken-burns">
-            <img 
-              src={lifestyle6} 
-              alt="Peace and meditation"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute inset-0 bg-foreground/75" />
-        </div>
+        <KenBurnsImage 
+          src={lifestyle6}
+          alt="Peace and meditation"
+          duration={25}
+          overlay={true}
+          overlayIntensity="light"
+        />
+        <div className="absolute inset-0 bg-foreground/50" />
         
-        {/* AFFIRMATION WATERMARK */}
-        <div className="affirmation-watermark affirmation-watermark-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary-foreground/5">
+        {/* AFFIRMATION WATERMARK - Enhanced Glow */}
+        <div className="affirmation-watermark affirmation-watermark-lg affirmation-watermark-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary-foreground/15">
           PEACE
         </div>
         
@@ -627,21 +621,19 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Full-width Community Banner - Cinematic */}
+      {/* Full-width Community Banner - Cinematic with Enhanced Visibility */}
       <section className="relative h-[90vh] overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 ken-burns">
-            <img 
-              src={lifestyle8} 
-              alt="Community gathering"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute inset-0 bg-foreground/65" />
-        </div>
+        <KenBurnsImage 
+          src={lifestyle8}
+          alt="Community gathering"
+          duration={25}
+          overlay={true}
+          overlayIntensity="light"
+        />
+        <div className="absolute inset-0 bg-foreground/40" />
         
-        {/* AFFIRMATION WATERMARK */}
-        <div className="affirmation-watermark affirmation-watermark-lg top-1/2 right-10 -translate-y-1/2 text-primary-foreground/5">
+        {/* AFFIRMATION WATERMARK - Enhanced Glow */}
+        <div className="affirmation-watermark affirmation-watermark-lg affirmation-watermark-glow top-1/2 right-10 -translate-y-1/2 text-primary-foreground/15">
           UNITY
         </div>
         
