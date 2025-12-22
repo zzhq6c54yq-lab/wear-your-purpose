@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import heroCampfire from "@/assets/hero-campfire.jpg";
 import CinematicVignette from "./CinematicVignette";
 import LightLeak from "./LightLeak";
@@ -7,11 +7,17 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 // Ember particle component
-const Ember = ({ delay, left, duration, size }: { delay: number; left: number; duration: number; size: number }) => (
+const Ember = ({ delay, left, duration, size, mouseInfluence }: { 
+  delay: number; 
+  left: number; 
+  duration: number; 
+  size: number;
+  mouseInfluence: { x: number; y: number };
+}) => (
   <div
     className="absolute rounded-full animate-ember-rise"
     style={{
-      left: `${left}%`,
+      left: `${left + mouseInfluence.x * 0.5}%`,
       bottom: "25%",
       width: `${size}px`,
       height: `${size}px`,
@@ -24,11 +30,17 @@ const Ember = ({ delay, left, duration, size }: { delay: number; left: number; d
 );
 
 // Smoke wisp component
-const SmokeWisp = ({ delay, left, duration, size }: { delay: number; left: number; duration: number; size: number }) => (
+const SmokeWisp = ({ delay, left, duration, size, mouseInfluence }: { 
+  delay: number; 
+  left: number; 
+  duration: number; 
+  size: number;
+  mouseInfluence: { x: number; y: number };
+}) => (
   <div
     className="absolute rounded-full animate-smoke-rise"
     style={{
-      left: `${left}%`,
+      left: `${left + mouseInfluence.x * 0.8}%`,
       bottom: "30%",
       width: `${size}px`,
       height: `${size * 1.5}px`,
@@ -40,34 +52,76 @@ const SmokeWisp = ({ delay, left, duration, size }: { delay: number; left: numbe
   />
 );
 
-// Flame component
-const Flame = ({ left, delay, height, width }: { left: number; delay: number; height: number; width: number }) => (
-  <div
-    className="absolute animate-flame-dance"
-    style={{
-      left: `${left}%`,
-      bottom: "22%",
-      width: `${width}px`,
-      height: `${height}px`,
-      background: `linear-gradient(to top, 
-        rgba(255, 80, 0, 0.6) 0%, 
-        rgba(255, 120, 20, 0.5) 20%, 
-        rgba(255, 160, 40, 0.4) 40%, 
-        rgba(255, 200, 60, 0.3) 60%, 
-        rgba(255, 220, 100, 0.2) 80%, 
-        transparent 100%)`,
-      borderRadius: "50% 50% 50% 50% / 60% 60% 40% 40%",
-      filter: "blur(3px)",
-      transformOrigin: "bottom center",
-      animationDelay: `${delay}s`,
-    }}
-  />
-);
+// Interactive Flame component
+const Flame = ({ 
+  left, 
+  delay, 
+  height, 
+  width, 
+  mouseInfluence 
+}: { 
+  left: number; 
+  delay: number; 
+  height: number; 
+  width: number;
+  mouseInfluence: { x: number; y: number };
+}) => {
+  // Calculate lean based on mouse position
+  const leanAngle = mouseInfluence.x * 15; // Max 15 degrees lean
+  const stretchFactor = 1 + Math.abs(mouseInfluence.x) * 0.2;
+  
+  return (
+    <div
+      className="absolute animate-flame-dance"
+      style={{
+        left: `${left}%`,
+        bottom: "22%",
+        width: `${width}px`,
+        height: `${height * stretchFactor}px`,
+        background: `linear-gradient(to top, 
+          rgba(255, 80, 0, 0.6) 0%, 
+          rgba(255, 120, 20, 0.5) 20%, 
+          rgba(255, 160, 40, 0.4) 40%, 
+          rgba(255, 200, 60, 0.3) 60%, 
+          rgba(255, 220, 100, 0.2) 80%, 
+          transparent 100%)`,
+        borderRadius: "50% 50% 50% 50% / 60% 60% 40% 40%",
+        filter: "blur(3px)",
+        transformOrigin: "bottom center",
+        transform: `skewX(${leanAngle}deg)`,
+        animationDelay: `${delay}s`,
+        transition: "transform 0.3s ease-out",
+      }}
+    />
+  );
+};
 
 const AnimatedFireHero = () => {
   const [brandedImage, setBrandedImage] = useState<string | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [mouseInfluence, setMouseInfluence] = useState({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
   const hasAttemptedGeneration = useRef(false);
+
+  // Track mouse movement
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return;
+    
+    const rect = containerRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    // Calculate distance from center (normalized -1 to 1)
+    const deltaX = (e.clientX - centerX) / (rect.width / 2);
+    const deltaY = (e.clientY - centerY) / (rect.height / 2);
+    
+    // Invert X so flames lean away from cursor
+    setMouseInfluence({ x: -deltaX, y: -deltaY });
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setMouseInfluence({ x: 0, y: 0 });
+  }, []);
 
   // Generate branded image on mount (only once)
   useEffect(() => {
@@ -139,7 +193,12 @@ const AnimatedFireHero = () => {
   const displayImage = brandedImage || heroCampfire;
 
   return (
-    <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] overflow-hidden">
+    <div 
+      ref={containerRef}
+      className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] overflow-hidden"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
       <CinematicVignette intensity="medium" />
       <LightLeak variant="golden" animated={true} />
       
@@ -152,16 +211,16 @@ const AnimatedFireHero = () => {
       
       {/* Fire effects overlay */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Animated flames */}
+        {/* Animated flames - responsive to mouse */}
         {flames.map((flame) => (
-          <Flame key={`flame-${flame.id}`} {...flame} />
+          <Flame key={`flame-${flame.id}`} {...flame} mouseInfluence={mouseInfluence} />
         ))}
         
-        {/* Central fire glow */}
+        {/* Central fire glow - shifts with mouse */}
         <div 
-          className="absolute animate-fire-glow"
+          className="absolute animate-fire-glow transition-transform duration-300"
           style={{
-            left: "45%",
+            left: `${45 + mouseInfluence.x * 3}%`,
             bottom: "20%",
             width: "15%",
             height: "25%",
@@ -172,22 +231,23 @@ const AnimatedFireHero = () => {
         
         {/* Secondary fire flicker */}
         <div 
-          className="absolute animate-fire-flicker"
+          className="absolute animate-fire-flicker transition-transform duration-300"
           style={{
-            left: "42%",
+            left: `${42 + mouseInfluence.x * 4}%`,
             bottom: "18%",
             width: "20%",
             height: "30%",
             background: "radial-gradient(ellipse at center, rgba(255, 160, 40, 0.4) 0%, rgba(255, 100, 20, 0.2) 50%, transparent 80%)",
             filter: "blur(30px)",
+            transform: `skewX(${mouseInfluence.x * 10}deg)`,
           }}
         />
         
         {/* Warm ambient glow */}
         <div 
-          className="absolute animate-fire-ambient"
+          className="absolute animate-fire-ambient transition-transform duration-500"
           style={{
-            left: "30%",
+            left: `${30 + mouseInfluence.x * 2}%`,
             bottom: "10%",
             width: "40%",
             height: "40%",
@@ -210,22 +270,22 @@ const AnimatedFireHero = () => {
         />
       </div>
       
-      {/* Smoke wisps */}
+      {/* Smoke wisps - responsive to mouse */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {smokeWisps.map((wisp) => (
-          <SmokeWisp key={`smoke-${wisp.id}`} {...wisp} />
+          <SmokeWisp key={`smoke-${wisp.id}`} {...wisp} mouseInfluence={mouseInfluence} />
         ))}
       </div>
       
-      {/* Floating embers */}
+      {/* Floating embers - responsive to mouse */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {embers.map((ember) => (
-          <Ember key={`ember-${ember.id}`} {...ember} />
+          <Ember key={`ember-${ember.id}`} {...ember} mouseInfluence={mouseInfluence} />
         ))}
       </div>
       
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" />
       
       {/* Loading indicator */}
       {isGenerating && (
@@ -236,7 +296,7 @@ const AnimatedFireHero = () => {
       )}
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in z-10" style={{ animationDelay: "1s" }}>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in z-10 pointer-events-none" style={{ animationDelay: "1s" }}>
         <span className="font-sans text-[10px] tracking-ultra text-white/70 uppercase hero-text-shadow">Scroll</span>
         <ChevronDown className="text-white/70 animate-bounce" size={20} />
       </div>

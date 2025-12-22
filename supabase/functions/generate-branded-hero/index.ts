@@ -35,7 +35,21 @@ serve(async (req) => {
             content: [
               {
                 type: "text",
-                text: "Edit this campfire image to add a small, subtle bronze/copper colored logo on the chest area of each hoodie worn by the people around the fire. The logo should be a minimalist head silhouette with a small heart symbol inside it. Make the logos look like professionally printed hoodie logos - visible but not too large or overpowering. Keep everything else exactly the same - the fire, lighting, people's positions, and overall warm atmosphere. The logos should match the cozy, community vibe of the image."
+                text: `Edit this campfire image to add the Thrive brand logo and inspiring designs to each hoodie worn by the people sitting around the fire. 
+
+IMPORTANT DETAILS FOR THE LOGOS:
+- Each hoodie should have a visible bronze/copper colored logo on the CHEST area
+- The logo is a minimalist human head silhouette with a small heart symbol inside the head
+- Make the logos look like real, professionally screen-printed hoodie graphics
+- The logos should be about 3-4 inches in size (proportional to the chest)
+- Add subtle text below some logos that says "THRIVE" in clean sans-serif font
+- Some hoodies can have additional small heart symbols or "You Matter" text on sleeves
+
+STYLE REQUIREMENTS:
+- Keep the warm, cozy campfire atmosphere exactly as is
+- The fire, lighting, and people's positions must stay the same
+- Logos should blend naturally with the hoodie fabric and lighting
+- Use bronze, copper, and warm gold tones for the designs to match the fire glow`
               },
               {
                 type: "image_url",
