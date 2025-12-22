@@ -1,0 +1,4 @@
+project_id = "lvrwdsmktuqruabxtmig"
+
+[functions.generate-branded-hero]
+verify_jwt = false

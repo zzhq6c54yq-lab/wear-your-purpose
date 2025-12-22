@@ -15,6 +15,7 @@ import CinematicVignette from "@/components/CinematicVignette";
 import LightLeak from "@/components/LightLeak";
 import KenBurnsImage from "@/components/KenBurnsImage";
 import VideoHero from "@/components/VideoHero";
+import AnimatedFireHero from "@/components/AnimatedFireHero";
 import TiltCard from "@/components/TiltCard";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxSection from "@/components/ParallaxSection";
@@ -168,23 +169,8 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Hero Image - Below Text */}
-        <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] overflow-hidden">
-          <CinematicVignette intensity="medium" />
-          <LightLeak variant="golden" animated={true} />
-          <img 
-            src={heroCampfire}
-            alt="Friends laughing around campfire in Thrive hoodies"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
-          
-          {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in z-10" style={{ animationDelay: "1s" }}>
-            <span className="font-sans text-[10px] tracking-ultra text-white/70 uppercase hero-text-shadow">Scroll</span>
-            <ChevronDown className="text-white/70 animate-bounce" size={20} />
-          </div>
-        </div>
+        {/* Hero Image with Animated Fire - Below Text */}
+        <AnimatedFireHero />
       </section>
 
       {/* IMPACT COUNTER SECTION */}
