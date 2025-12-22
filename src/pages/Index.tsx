@@ -93,7 +93,7 @@ const Index = () => {
       </div>
 
       {/* CINEMATIC HERO SECTION */}
-      <section ref={heroRef} className="relative min-h-screen flex items-start pt-24 sm:pt-28 md:pt-32 justify-center overflow-hidden film-color-grade-warm">
+      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden film-color-grade-warm">
         {/* Cinematic Vignette */}
         <CinematicVignette intensity="dramatic" />
         
@@ -144,10 +144,10 @@ const Index = () => {
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center bg-background/60 backdrop-blur-md rounded-2xl py-10 px-6 sm:py-14 sm:px-10 md:py-16 md:px-14 shadow-2xl border border-white/10">
             {/* Brand Name First - Dramatic Typography */}
             <div className={`mb-6 md:mb-8 transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-hero font-medium text-white tracking-wide mb-3 md:mb-4 hero-text-glow">
+              <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-hero font-medium text-foreground tracking-wide mb-3 md:mb-4 drop-shadow-lg">
                 <span className="inline-block animate-reveal-up" style={{ animationDelay: "0.3s" }}>T</span>
                 <span className="inline-block animate-reveal-up" style={{ animationDelay: "0.35s" }}>H</span>
                 <span className="inline-block animate-reveal-up" style={{ animationDelay: "0.4s" }}>R</span>
@@ -179,12 +179,12 @@ const Index = () => {
             </div>
             
             {/* Tagline with Staggered Animation */}
-            <p className={`font-serif text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-4 md:mb-6 italic hero-text-shadow transition-all duration-1000 delay-300 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <p className={`font-serif text-lg sm:text-xl md:text-2xl lg:text-3xl text-foreground/90 mb-4 md:mb-6 italic transition-all duration-1000 delay-300 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Where Luxury Meets Mindful Living
             </p>
             
             {/* Description */}
-            <p className={`font-sans text-xs sm:text-sm md:text-base text-white/80 mb-10 md:mb-14 max-w-2xl mx-auto leading-relaxed tracking-wide px-4 hero-text-shadow transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <p className={`font-sans text-xs sm:text-sm md:text-base text-muted-foreground mb-10 md:mb-14 max-w-2xl mx-auto leading-relaxed tracking-wide px-4 transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Elevated apparel designed for those who believe in the power of positive intention. 
               Each piece is crafted to inspire, heal, and elevate your everyday journey.
             </p>
