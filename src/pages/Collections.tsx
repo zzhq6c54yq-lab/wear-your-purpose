@@ -11,6 +11,9 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import FilmGrain from "@/components/FilmGrain";
 import CinematicVignette from "@/components/CinematicVignette";
 import LightLeak from "@/components/LightLeak";
+import KenBurnsImage from "@/components/KenBurnsImage";
+import TiltCard from "@/components/TiltCard";
+import ScrollReveal from "@/components/ScrollReveal";
 
 // Import lifestyle images
 import lifestyle4 from "@/assets/community/lifestyle-4.jpg";
@@ -142,27 +145,28 @@ const Collections = () => {
       {/* Editorial Image Divider */}
       {activeCategory === "ThriveMT" && (
         <section className="relative h-[50vh] overflow-hidden">
-          <div className="absolute inset-0 ken-burns">
-            <img 
-              src={lifestyle4} 
-              alt="ThriveMT Collection"
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <KenBurnsImage 
+            src={lifestyle4}
+            alt="ThriveMT Collection"
+            duration={20}
+            overlay={false}
+          />
           <div className="absolute inset-0 bg-foreground/60" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center">
-              <span className="text-couture text-primary-foreground/70">INTRODUCING</span>
-              <h2 className="font-serif text-display text-primary-foreground mt-4">
-                The ThriveMT
-                <br />
-                Collection
-              </h2>
-              <p className="mt-6 text-primary-foreground/80 max-w-lg mx-auto">
-                8 exclusive designs created in partnership with ThriveMT Mental Health. 
-                Each piece carries a powerful message and supports mental health initiatives.
-              </p>
-            </div>
+            <ScrollReveal animation="scale" duration={1000}>
+              <div className="text-center">
+                <span className="text-couture text-primary-foreground/70">INTRODUCING</span>
+                <h2 className="font-serif text-display text-primary-foreground mt-4">
+                  The ThriveMT
+                  <br />
+                  Collection
+                </h2>
+                <p className="mt-6 text-primary-foreground/80 max-w-lg mx-auto">
+                  8 exclusive designs created in partnership with ThriveMT Mental Health. 
+                  Each piece carries a powerful message and supports mental health initiatives.
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
       )}
@@ -183,88 +187,95 @@ const Collections = () => {
           {/* Grid with editorial spacing */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
             {filteredProducts.map((product, i) => (
-              <div 
+              <TiltCard
                 key={product.id}
-                className={`group product-card-couture rounded-none overflow-hidden transition-all duration-700 ${productsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                style={{ transitionDelay: `${Math.min(i * 50, 500)}ms` }}
+                tiltAmount={6}
+                glareEnabled={true}
+                scale={1.02}
+                className="group"
               >
-                <Link to={`/product/${product.id}`} className="block">
-                  <div className="relative aspect-[3/4] image-editorial">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover"
-                    />
-                    
-                    {/* ThriveMT Badge */}
-                    {product.category === "ThriveMT" && (
-                      <div className="absolute top-4 left-4 badge-runway">
-                        ThriveMT
+                <div 
+                  className={`product-card-couture rounded-none overflow-hidden transition-all duration-700 ${productsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  style={{ transitionDelay: `${Math.min(i * 50, 500)}ms` }}
+                >
+                  <Link to={`/product/${product.id}`} className="block">
+                    <div className="relative aspect-[3/4] image-editorial">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-cover"
+                      />
+                      
+                      {/* ThriveMT Badge */}
+                      {product.category === "ThriveMT" && (
+                        <div className="absolute top-4 left-4 badge-runway">
+                          ThriveMT
+                        </div>
+                      )}
+                      
+                      {/* Wishlist Button */}
+                      <button 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleWishlistToggle(product.id);
+                        }}
+                        className={`absolute top-4 right-4 w-10 h-10 flex items-center justify-center transition-all border ${
+                          isInWishlist(product.id)
+                            ? "bg-foreground text-background border-foreground"
+                            : "bg-background/90 backdrop-blur-sm text-foreground border-border hover:border-foreground"
+                        }`}
+                        aria-label={isInWishlist(product.id) ? "Remove from wishlist" : "Add to wishlist"}
+                      >
+                        <Heart size={16} fill={isInWishlist(product.id) ? "currentColor" : "none"} />
+                      </button>
+                      
+                      {/* Hover overlay with affirmation */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-foreground via-foreground/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p className="font-serif text-primary-foreground text-base italic leading-relaxed">
+                          "{product.affirmation}"
+                        </p>
                       </div>
-                    )}
+                    </div>
+                  </Link>
+                  
+                  <div className="p-6 bg-card">
+                    <span className="text-[0.65rem] tracking-couture text-gold uppercase font-medium">
+                      {product.category}
+                    </span>
+                    <Link to={`/product/${product.id}`}>
+                      <h3 className="font-serif text-lg text-foreground mt-2 mb-2 group-hover:text-gold transition-colors duration-300">
+                        {product.name}
+                      </h3>
+                    </Link>
+                    <p className="font-sans text-xs text-muted-foreground mb-4 line-clamp-2 leading-relaxed">
+                      {product.description}
+                    </p>
                     
-                    {/* Wishlist Button */}
-                    <button 
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleWishlistToggle(product.id);
-                      }}
-                      className={`absolute top-4 right-4 w-10 h-10 flex items-center justify-center transition-all border ${
-                        isInWishlist(product.id)
-                          ? "bg-foreground text-background border-foreground"
-                          : "bg-background/90 backdrop-blur-sm text-foreground border-border hover:border-foreground"
-                      }`}
-                      aria-label={isInWishlist(product.id) ? "Remove from wishlist" : "Add to wishlist"}
-                    >
-                      <Heart size={16} fill={isInWishlist(product.id) ? "currentColor" : "none"} />
-                    </button>
+                    {/* Colors */}
+                    <div className="flex items-center gap-2 mb-5">
+                      {product.colors.slice(0, 2).map((color, idx) => (
+                        <span key={idx} className="text-[0.6rem] tracking-luxury text-muted-foreground uppercase">
+                          {color}{idx < Math.min(product.colors.length - 1, 1) && " /"}
+                        </span>
+                      ))}
+                      {product.colors.length > 2 && (
+                        <span className="text-[0.6rem] text-muted-foreground">+{product.colors.length - 2}</span>
+                      )}
+                    </div>
                     
-                    {/* Hover overlay with affirmation */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-foreground via-foreground/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                      <p className="font-serif text-primary-foreground text-base italic leading-relaxed">
-                        "{product.affirmation}"
-                      </p>
+                    {/* Price & CTA */}
+                    <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                      <span className="price-couture text-xl text-foreground">${product.price}</span>
+                      <Link 
+                        to={`/product/${product.id}`}
+                        className="text-[0.65rem] tracking-couture uppercase text-foreground hover:text-gold transition-colors flex items-center gap-2"
+                      >
+                        View <ArrowRight size={12} />
+                      </Link>
                     </div>
                   </div>
-                </Link>
-                
-                <div className="p-6 bg-card">
-                  <span className="text-[0.65rem] tracking-couture text-gold uppercase font-medium">
-                    {product.category}
-                  </span>
-                  <Link to={`/product/${product.id}`}>
-                    <h3 className="font-serif text-lg text-foreground mt-2 mb-2 group-hover:text-gold transition-colors duration-300">
-                      {product.name}
-                    </h3>
-                  </Link>
-                  <p className="font-sans text-xs text-muted-foreground mb-4 line-clamp-2 leading-relaxed">
-                    {product.description}
-                  </p>
-                  
-                  {/* Colors */}
-                  <div className="flex items-center gap-2 mb-5">
-                    {product.colors.slice(0, 2).map((color, idx) => (
-                      <span key={idx} className="text-[0.6rem] tracking-luxury text-muted-foreground uppercase">
-                        {color}{idx < Math.min(product.colors.length - 1, 1) && " /"}
-                      </span>
-                    ))}
-                    {product.colors.length > 2 && (
-                      <span className="text-[0.6rem] text-muted-foreground">+{product.colors.length - 2}</span>
-                    )}
-                  </div>
-                  
-                  {/* Price & CTA */}
-                  <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                    <span className="price-couture text-xl text-foreground">${product.price}</span>
-                    <Link 
-                      to={`/product/${product.id}`}
-                      className="text-[0.65rem] tracking-couture uppercase text-foreground hover:text-gold transition-colors flex items-center gap-2"
-                    >
-                      View <ArrowRight size={12} />
-                    </Link>
-                  </div>
                 </div>
-              </div>
+              </TiltCard>
             ))}
           </div>
         </div>
@@ -295,13 +306,12 @@ const Collections = () => {
       {/* Coming Soon Banner - High Fashion */}
       <section className="relative py-40 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 ken-burns">
-            <img 
-              src={lifestyle10} 
-              alt="Joyful future"
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <KenBurnsImage 
+            src={lifestyle10}
+            alt="Joyful future"
+            duration={25}
+            overlay={false}
+          />
           <div className="absolute inset-0 bg-foreground/75" />
         </div>
         
