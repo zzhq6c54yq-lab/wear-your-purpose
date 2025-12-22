@@ -92,62 +92,14 @@ const Index = () => {
         </div>
       </div>
 
-      {/* CINEMATIC HERO SECTION */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden film-color-grade-warm">
-        {/* Cinematic Vignette */}
-        <CinematicVignette intensity="dramatic" />
-        
-        {/* Light Leak Effect */}
-        <LightLeak variant="golden" animated={true} />
-        
-        {/* Video Hero Background - Campfire Community */}
-        <VideoHero 
-          fallbackImage={heroCampfire}
-          alt="Friends laughing around campfire in Thrive hoodies"
-          overlayOpacity="subtle"
-        />
-        
-        {/* AFFIRMATION WATERMARK with Parallax - Enhanced Glow */}
-        <ParallaxSection speed={0.2} className="absolute inset-0 z-[2]">
-          <div className="affirmation-watermark affirmation-watermark-lg affirmation-watermark-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            THRIVE
-          </div>
-        </ParallaxSection>
-        
-        {/* Aurora Effect with Parallax */}
-        <ParallaxSection speed={0.15} direction="down" className="absolute inset-0 z-[3]">
-          <div className="absolute inset-0 aurora-bg opacity-40" />
-        </ParallaxSection>
-        
-        {/* Floating Hearts with different parallax speeds */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none z-[4]">
-          {[...Array(8)].map((_, i) => (
-            <ParallaxSection key={i} speed={0.1 + i * 0.05}>
-              <Heart
-                className="absolute text-rose-gold/10 animate-float-heart"
-                size={16 + i * 6}
-                style={{
-                  left: `${10 + i * 12}%`,
-                  animationDelay: `${i * 1.2}s`,
-                  animationDuration: `${6 + i * 0.8}s`,
-                }}
-                fill="currentColor"
-              />
-            </ParallaxSection>
-          ))}
-        </div>
-
-        {/* Decorative lines */}
-        <div className="absolute inset-0 pointer-events-none z-[5]">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-t from-transparent via-primary/30 to-transparent" />
-        </div>
-        
-        <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16 relative z-10">
-          <div className="max-w-5xl mx-auto text-center bg-background/60 backdrop-blur-md rounded-2xl py-10 px-6 sm:py-14 sm:px-10 md:py-16 md:px-14 shadow-2xl border border-white/10">
+      {/* HERO SECTION - Text Top, Image Below */}
+      <section ref={heroRef} className="relative bg-background overflow-hidden">
+        {/* Text Content - Top Centered */}
+        <div className="container mx-auto px-4 sm:px-6 pt-8 pb-10 md:pt-12 md:pb-14 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
             {/* Brand Name First - Dramatic Typography */}
-            <div className={`mb-6 md:mb-8 transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-hero font-medium text-foreground tracking-wide mb-3 md:mb-4 drop-shadow-lg">
+            <div className={`mb-4 md:mb-6 transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-hero font-medium text-foreground tracking-wide mb-3 md:mb-4">
                 <span className="inline-block animate-reveal-up" style={{ animationDelay: "0.3s" }}>T</span>
                 <span className="inline-block animate-reveal-up" style={{ animationDelay: "0.35s" }}>H</span>
                 <span className="inline-block animate-reveal-up" style={{ animationDelay: "0.4s" }}>R</span>
@@ -164,32 +116,31 @@ const Index = () => {
               </div>
             </div>
             
-            {/* Rose Gold Icon Below Brand Name */}
-            <div className={`mb-8 md:mb-12 transition-all duration-1000 delay-200 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            {/* Rose Gold Icon */}
+            <div className={`mb-6 md:mb-8 transition-all duration-1000 delay-200 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="relative inline-block">
-                <div className="absolute -inset-8 md:-inset-12 bg-rose-gold/20 rounded-full blur-3xl animate-pulse-glow" />
-                <div className="absolute -inset-6 md:-inset-8 bg-gold/10 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: "1s" }} />
+                <div className="absolute -inset-6 md:-inset-10 bg-rose-gold/20 rounded-full blur-3xl animate-pulse-glow" />
                 <img
                   src={thriveIcon}
                   alt="Thrive"
-                  className="relative h-20 w-20 sm:h-24 sm:w-24 md:h-32 md:w-32 mx-auto object-contain drop-shadow-2xl animate-float"
+                  className="relative h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 mx-auto object-contain drop-shadow-xl animate-float"
                   style={{ filter: "sepia(20%) saturate(150%) hue-rotate(-10deg)" }}
                 />
               </div>
             </div>
             
-            {/* Tagline with Staggered Animation */}
-            <p className={`font-serif text-lg sm:text-xl md:text-2xl lg:text-3xl text-foreground/90 mb-4 md:mb-6 italic transition-all duration-1000 delay-300 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            {/* Tagline */}
+            <p className={`font-serif text-lg sm:text-xl md:text-2xl lg:text-3xl text-foreground/90 mb-3 md:mb-4 italic transition-all duration-1000 delay-300 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Where Luxury Meets Mindful Living
             </p>
             
             {/* Description */}
-            <p className={`font-sans text-xs sm:text-sm md:text-base text-muted-foreground mb-10 md:mb-14 max-w-2xl mx-auto leading-relaxed tracking-wide px-4 transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <p className={`font-sans text-xs sm:text-sm md:text-base text-muted-foreground mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed tracking-wide transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Elevated apparel designed for those who believe in the power of positive intention. 
               Each piece is crafted to inspire, heal, and elevate your everyday journey.
             </p>
             
-            {/* CTAs with Premium Hover Effects */}
+            {/* CTAs */}
             <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 transition-all duration-1000 delay-700 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <Button 
                 size="lg" 
@@ -215,11 +166,23 @@ const Index = () => {
               </Button>
             </div>
           </div>
+        </div>
+        
+        {/* Hero Image - Below Text */}
+        <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] overflow-hidden">
+          <CinematicVignette intensity="medium" />
+          <LightLeak variant="golden" animated={true} />
+          <img 
+            src={heroCampfire}
+            alt="Friends laughing around campfire in Thrive hoodies"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
           
           {/* Scroll indicator */}
-          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in" style={{ animationDelay: "1s" }}>
-            <span className="font-sans text-[10px] tracking-ultra text-muted-foreground/50 uppercase">Scroll</span>
-            <ChevronDown className="text-primary/50 animate-bounce" size={20} />
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in z-10" style={{ animationDelay: "1s" }}>
+            <span className="font-sans text-[10px] tracking-ultra text-white/70 uppercase hero-text-shadow">Scroll</span>
+            <ChevronDown className="text-white/70 animate-bounce" size={20} />
           </div>
         </div>
       </section>
