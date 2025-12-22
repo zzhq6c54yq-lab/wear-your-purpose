@@ -104,7 +104,7 @@ const Index = () => {
         <VideoHero 
           fallbackImage={heroCampfire}
           alt="Friends laughing around campfire in Thrive hoodies"
-          overlayOpacity="light"
+          overlayOpacity="subtle"
         />
         
         {/* AFFIRMATION WATERMARK with Parallax - Enhanced Glow */}
@@ -147,7 +147,7 @@ const Index = () => {
           <div className="max-w-5xl mx-auto text-center">
             {/* Brand Name First - Dramatic Typography */}
             <div className={`mb-6 md:mb-8 transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-hero font-medium text-foreground tracking-wide mb-3 md:mb-4">
+              <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-hero font-medium text-white tracking-wide mb-3 md:mb-4 hero-text-glow">
                 <span className="inline-block animate-reveal-up" style={{ animationDelay: "0.3s" }}>T</span>
                 <span className="inline-block animate-reveal-up" style={{ animationDelay: "0.35s" }}>H</span>
                 <span className="inline-block animate-reveal-up" style={{ animationDelay: "0.4s" }}>R</span>
@@ -179,12 +179,12 @@ const Index = () => {
             </div>
             
             {/* Tagline with Staggered Animation */}
-            <p className={`font-serif text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-4 md:mb-6 italic transition-all duration-1000 delay-300 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <p className={`font-serif text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-4 md:mb-6 italic hero-text-shadow transition-all duration-1000 delay-300 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Where Luxury Meets Mindful Living
             </p>
             
             {/* Description */}
-            <p className={`font-sans text-xs sm:text-sm md:text-base text-muted-foreground/80 mb-10 md:mb-14 max-w-2xl mx-auto leading-relaxed tracking-wide px-4 transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <p className={`font-sans text-xs sm:text-sm md:text-base text-white/80 mb-10 md:mb-14 max-w-2xl mx-auto leading-relaxed tracking-wide px-4 hero-text-shadow transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Elevated apparel designed for those who believe in the power of positive intention. 
               Each piece is crafted to inspire, heal, and elevate your everyday journey.
             </p>
