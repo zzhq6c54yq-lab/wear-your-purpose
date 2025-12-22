@@ -30,6 +30,7 @@ import lifestyle7 from "@/assets/community/lifestyle-7.jpg";
 import lifestyle8 from "@/assets/community/lifestyle-8.jpg";
 import lifestyle9 from "@/assets/community/lifestyle-9.jpg";
 import lifestyle10 from "@/assets/community/lifestyle-10.jpg";
+import heroCampfire from "@/assets/hero-campfire.jpg";
 
 const lifestyleImages = [
   { src: lifestyle1, alt: "Group around campfire in Thrive hoodies", caption: "Unity in Community" },
@@ -99,10 +100,10 @@ const Index = () => {
         {/* Light Leak Effect */}
         <LightLeak variant="golden" animated={true} />
         
-        {/* Video Hero Background - Falls back to Ken Burns */}
+        {/* Video Hero Background - Campfire Community */}
         <VideoHero 
-          fallbackImage={lifestyle1}
-          alt="Community"
+          fallbackImage={heroCampfire}
+          alt="Friends laughing around campfire in Thrive hoodies"
           overlayOpacity="light"
         />
         
@@ -142,25 +143,11 @@ const Index = () => {
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-t from-transparent via-primary/30 to-transparent" />
         </div>
         
-        <div className="container mx-auto px-6 py-16 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            {/* Rose Gold Icon with Premium Glow */}
-            <div className={`mb-12 transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="relative inline-block">
-                <div className="absolute -inset-12 bg-rose-gold/20 rounded-full blur-3xl animate-pulse-glow" />
-                <div className="absolute -inset-8 bg-gold/10 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: "1s" }} />
-                <img
-                  src={thriveIcon}
-                  alt="Thrive"
-                  className="relative h-32 w-32 md:h-40 md:w-40 mx-auto object-contain drop-shadow-2xl animate-float"
-                  style={{ filter: "sepia(20%) saturate(150%) hue-rotate(-10deg)" }}
-                />
-              </div>
-            </div>
-            
-            {/* Brand Name - Dramatic Typography */}
-            <div className={`mb-8 transition-all duration-1000 delay-200 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h1 className="font-serif text-hero font-medium text-foreground tracking-wide mb-4">
+            {/* Brand Name First - Dramatic Typography */}
+            <div className={`mb-6 md:mb-8 transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-hero font-medium text-foreground tracking-wide mb-3 md:mb-4">
                 <span className="inline-block animate-reveal-up" style={{ animationDelay: "0.3s" }}>T</span>
                 <span className="inline-block animate-reveal-up" style={{ animationDelay: "0.35s" }}>H</span>
                 <span className="inline-block animate-reveal-up" style={{ animationDelay: "0.4s" }}>R</span>
@@ -168,36 +155,50 @@ const Index = () => {
                 <span className="inline-block animate-reveal-up" style={{ animationDelay: "0.5s" }}>V</span>
                 <span className="inline-block animate-reveal-up" style={{ animationDelay: "0.55s" }}>E</span>
               </h1>
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-20 h-px bg-gradient-to-r from-transparent via-rose-gold to-transparent animate-scale-in" style={{ animationDelay: "0.7s" }} />
-                <span className="font-sans text-xs md:text-sm tracking-ultra text-rose-gold uppercase animate-fade-in" style={{ animationDelay: "0.8s" }}>
+              <div className="flex items-center justify-center gap-3 md:gap-4">
+                <div className="w-12 md:w-20 h-px bg-gradient-to-r from-transparent via-rose-gold to-transparent animate-scale-in" style={{ animationDelay: "0.7s" }} />
+                <span className="font-sans text-[10px] sm:text-xs md:text-sm tracking-ultra text-rose-gold uppercase animate-fade-in" style={{ animationDelay: "0.8s" }}>
                   Apparel Co.
                 </span>
-                <div className="w-20 h-px bg-gradient-to-r from-transparent via-rose-gold to-transparent animate-scale-in" style={{ animationDelay: "0.7s" }} />
+                <div className="w-12 md:w-20 h-px bg-gradient-to-r from-transparent via-rose-gold to-transparent animate-scale-in" style={{ animationDelay: "0.7s" }} />
+              </div>
+            </div>
+            
+            {/* Rose Gold Icon Below Brand Name */}
+            <div className={`mb-8 md:mb-12 transition-all duration-1000 delay-200 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="relative inline-block">
+                <div className="absolute -inset-8 md:-inset-12 bg-rose-gold/20 rounded-full blur-3xl animate-pulse-glow" />
+                <div className="absolute -inset-6 md:-inset-8 bg-gold/10 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: "1s" }} />
+                <img
+                  src={thriveIcon}
+                  alt="Thrive"
+                  className="relative h-20 w-20 sm:h-24 sm:w-24 md:h-32 md:w-32 mx-auto object-contain drop-shadow-2xl animate-float"
+                  style={{ filter: "sepia(20%) saturate(150%) hue-rotate(-10deg)" }}
+                />
               </div>
             </div>
             
             {/* Tagline with Staggered Animation */}
-            <p className={`font-serif text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-6 italic transition-all duration-1000 delay-300 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <p className={`font-serif text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-4 md:mb-6 italic transition-all duration-1000 delay-300 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Where Luxury Meets Mindful Living
             </p>
             
             {/* Description */}
-            <p className={`font-sans text-sm md:text-base text-muted-foreground/80 mb-14 max-w-2xl mx-auto leading-relaxed tracking-wide transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <p className={`font-sans text-xs sm:text-sm md:text-base text-muted-foreground/80 mb-10 md:mb-14 max-w-2xl mx-auto leading-relaxed tracking-wide px-4 transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Elevated apparel designed for those who believe in the power of positive intention. 
               Each piece is crafted to inspire, heal, and elevate your everyday journey.
             </p>
             
             {/* CTAs with Premium Hover Effects */}
-            <div className={`flex flex-col sm:flex-row items-center justify-center gap-6 transition-all duration-1000 delay-700 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 transition-all duration-1000 delay-700 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <Button 
                 size="lg" 
-                className="btn-magnetic bg-gradient-rose-gold text-primary-foreground hover:opacity-90 transition-all font-sans text-xs tracking-luxury uppercase px-14 py-8 rounded-none shadow-rose hover:shadow-lg group relative overflow-hidden"
+                className="btn-magnetic bg-gradient-rose-gold text-primary-foreground hover:opacity-90 transition-all font-sans text-[10px] sm:text-xs tracking-luxury uppercase px-8 sm:px-14 py-6 sm:py-8 rounded-none shadow-rose hover:shadow-lg group relative overflow-hidden w-full sm:w-auto"
                 asChild
               >
                 <Link to="/collections">
-                  <span className="relative z-10 flex items-center">
-                    Explore Collection <ArrowRight className="ml-3 group-hover:translate-x-2 transition-transform duration-300" size={16} />
+                  <span className="relative z-10 flex items-center justify-center">
+                    Explore Collection <ArrowRight className="ml-2 sm:ml-3 group-hover:translate-x-2 transition-transform duration-300" size={14} />
                   </span>
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 </Link>
@@ -205,7 +206,7 @@ const Index = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="btn-magnetic font-sans text-xs tracking-luxury uppercase px-14 py-8 border border-primary/30 text-foreground hover:bg-primary/5 hover:border-primary/50 transition-all rounded-none bg-transparent group"
+                className="btn-magnetic font-sans text-[10px] sm:text-xs tracking-luxury uppercase px-8 sm:px-14 py-6 sm:py-8 border border-primary/30 text-foreground hover:bg-primary/5 hover:border-primary/50 transition-all rounded-none bg-transparent group w-full sm:w-auto"
                 asChild
               >
                 <Link to="/about">
@@ -230,11 +231,11 @@ const Index = () => {
       <section ref={missionRef} className="py-32 bg-gradient-blush relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(15_60%_55%_/_0.08)_0%,transparent_70%)]" />
         
-        {/* AFFIRMATION WATERMARK */}
-        <div className="affirmation-watermark affirmation-watermark-md affirmation-watermark-intense top-1/4 -left-10 -rotate-12">
+        {/* AFFIRMATION WATERMARK - Positioned to stay visible */}
+        <div className="affirmation-watermark affirmation-watermark-md affirmation-watermark-intense top-1/4 left-4 sm:left-8 lg:left-16 -rotate-12">
           HEAL
         </div>
-        <div className="affirmation-watermark affirmation-watermark-sm bottom-10 right-10 rotate-6">
+        <div className="affirmation-watermark affirmation-watermark-sm bottom-10 right-4 sm:right-8 lg:right-16 rotate-6">
           YOU MATTER
         </div>
         
@@ -489,11 +490,11 @@ const Index = () => {
 
       {/* Community Gallery - Premium Masonry */}
       <section className="py-36 bg-background relative overflow-hidden">
-        {/* AFFIRMATION WATERMARK */}
-        <div className="affirmation-watermark affirmation-watermark-md affirmation-watermark-subtle top-20 -right-20 rotate-12">
+        {/* AFFIRMATION WATERMARK - Positioned to stay visible */}
+        <div className="affirmation-watermark affirmation-watermark-md affirmation-watermark-subtle top-20 right-4 sm:right-8 lg:right-16 rotate-12">
           TOGETHER
         </div>
-        <div className="affirmation-watermark affirmation-watermark-sm bottom-32 -left-10 -rotate-6">
+        <div className="affirmation-watermark affirmation-watermark-sm bottom-32 left-4 sm:left-8 lg:left-16 -rotate-6">
           WE RISE
         </div>
         
